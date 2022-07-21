@@ -13,6 +13,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -->
 
 ## Released
+## [0.2.0] - 2022-07-21
+### Added
+- `brightness(value)` to [`nextion_hardware`](nextion/nextion_hardware.py) to
+  control the display brightness
+- `sleep(state)` to [`nextion_hardware`](nextion/nextion_hardware.py) to set
+  display into sleep mode or wake it up
+- `reset()` to [`nextion_hardware`](nextion/nextion_hardware.py) to reset the
+  display to its default view like after a power cycle
+- [Hardware example](examples/hardware) to show usage of new hardware functions
+
+### Fixed
+- Invalid pin usage in [`boot_wifi.py`](examples/boot_wifi.py) file
+
 ## [0.1.0] - 2022-07-21
 ### Added
 - This changelog file
@@ -31,8 +44,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [Example HMI file](examples/everything.HMI) to be used for all examples
 
 <!-- Links -->
-[Unreleased]: https://github.com/brainelectronics/micropython-nextion/compare/0.1.0...develop
+[Unreleased]: https://github.com/brainelectronics/micropython-nextion/compare/0.2.0...develop
 
+[0.2.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.2.0
 [0.1.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.1.0
 
 <!--
