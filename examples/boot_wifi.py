@@ -84,4 +84,3 @@ print('Restart cause: {}'.format(machine.reset_cause()))
 gc.collect()
 
 print('System booted successfully!')
-
