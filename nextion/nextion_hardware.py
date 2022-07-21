@@ -122,6 +122,31 @@ class NexHardware(object):
 
         return ret1 & ret2
 
+    def sleep(self, state: bool) -> None:
+        """
+        Control display sleep state
+
+        :param      state:  Flag, True is sleep mode, False is wakeup
+        :type       state:  bool
+        """
+        cmd = "sleep={}".format(int(state))
+        self.sendCommand(cmd)
+
+    def brightness(self, value: int) -> None:
+        """
+        Set brightness of display
+
+        :param      value:  The value in percent [0, 100]
+        :type       value:  int
+        """
+        cmd = "dim={}".format(int(value))
+        self.sendCommand(cmd)
+
+    def reset(self) -> None:
+        """Reset display like on a power cycle"""
+        cmd = "rest"
+        self.sendCommand(cmd)
+
     def nexLoop(self):
         pass
 
