@@ -24,7 +24,7 @@ import time
 esp.osdebug(None)
 
 # set pin D4 as output (blue LED)
-led_pin = machine.Pin(4, Pin.OUT)
+led_pin = machine.Pin(4, machine.Pin.OUT)
 
 # turn onboard LED on
 led_pin.value(1)
