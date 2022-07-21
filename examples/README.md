@@ -31,3 +31,8 @@
 
 The [basic example](basic/main.py) shows the usage of all supported Nextion
 elements by simple UART command calls.
+
+## Hardware example
+
+The [hardware example](hardware/main.py) shows the usage of the hardware
+functions `sleep`, `brightness` and `reset`.
