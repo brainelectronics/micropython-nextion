@@ -76,7 +76,7 @@ class Common(object):
         :returns:   True on success, false otherwise
         :rtype:     bool
         """
-        cmd = "vis {},0".format(self.cid)
+        cmd = "vis {},0".format(self.name)
         self._nh.sendCommand(cmd)
         return self._nh.recvRetCommandFinished()
 
@@ -87,7 +87,7 @@ class Common(object):
         :returns:   True on success, false otherwise
         :rtype:     bool
         """
-        cmd = "vis {},1".format(self.cid)
+        cmd = "vis {},1".format(self.name)
         self._nh.sendCommand(cmd)
         return self._nh.recvRetCommandFinished()
 
