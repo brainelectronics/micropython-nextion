@@ -57,6 +57,20 @@ nh.reset()
 print('Fully brightness restored, all elements show the default value')
 print()
 
+time.sleep(1)
+
+# hide button "b0" on screen
+print('Hiding button "{}" ...'.format(b0.name))
+b0.hide()
+print()
+
+time.sleep(5)
+
+# show button "b0" again on screen
+print('Showing button "{}" again ...'.format(b0.name))
+b0.show()
+print()
+
 print('Returning to REPL in 5 seconds')
 
 # wait for 5 more seconds to safely finish the may still running threads
