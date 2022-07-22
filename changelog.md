@@ -13,6 +13,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -->
 
 ## Released
+## [0.3.0] - 2022-07-22
+### Added
+- Function `hide()` and `show()` for all supported Nextion elements to hide
+  or show the element on the screen
+- Example how to hide and show an element in
+  [hardware example](examples/hardware/main.py)
+
 ## [0.2.0] - 2022-07-21
 ### Added
 - `brightness(value)` to [`nextion_hardware`](nextion/nextion_hardware.py) to
@@ -44,8 +51,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [Example HMI file](examples/everything.HMI) to be used for all examples
 
 <!-- Links -->
-[Unreleased]: https://github.com/brainelectronics/micropython-nextion/compare/0.2.0...develop
+[Unreleased]: https://github.com/brainelectronics/micropython-nextion/compare/0.3.0...develop
 
+[0.3.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.3.0
 [0.2.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.2.0
 [0.1.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.1.0
 
