@@ -69,6 +69,28 @@ class Common(object):
         """
         return self._name
 
+    def hide(self) -> bool:
+        """
+        Hide component on screen
+
+        :returns:   True on success, false otherwise
+        :rtype:     bool
+        """
+        cmd = "vis {},0".format(self.cid)
+        self._nh.sendCommand(cmd)
+        return self._nh.recvRetCommandFinished()
+
+    def show(self) -> bool:
+        """
+        Show component on screen
+
+        :returns:   True on success, false otherwise
+        :rtype:     bool
+        """
+        cmd = "vis {},1".format(self.cid)
+        self._nh.sendCommand(cmd)
+        return self._nh.recvRetCommandFinished()
+
 
 class CommonValueMixin(object):
     """docstring for CommonValueMixin"""
