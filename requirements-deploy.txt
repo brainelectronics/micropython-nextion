@@ -1,0 +1,14 @@
+# List external packages here
+# Avoid fixed versions
+# # to upload package to PyPi or other package hosts
+# twine>=4.0.1,<5
+
+# to parse changelog semver
+semver>=2.13.0,<3
+
+# # to convert markdown to reStructuredText
+# m2rr>=0.2.3,<1
+# # fix bug in m2rr dependecy definitions
+# # see https://github.com/qhua948/m2rr/pull/1
+# docutils<=0.18
+# mistune<=1

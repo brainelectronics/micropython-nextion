@@ -52,3 +52,21 @@ class NexWaveform(Common):
         cmd = "add {},{},{}".format(self.cid, ch, number)
         self._nh.sendCommand(cmd)
         return True
+
+    def clearChannel(self, ch: int) -> bool:
+        """
+        Clear a channel of the waveform
+
+        :param      ch:   The channel to clear or 255 for all channels
+        :type       ch:   int
+
+        :returns:   True on success, false otherwise
+        :rtype:     bool
+        """
+        if (ch > 3) and (ch != 255):
+            self._logger.debug("Only channel (0-3) or all (255) can be cleared")
+            return False
+
+        cmd = "cle {},{}".format(self.cid, ch)
+        self._nh.sendCommand(cmd)
+        return self._nh.recvRetCommandFinished()
