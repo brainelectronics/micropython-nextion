@@ -34,12 +34,13 @@ jobs:
           --debug
         python setup.py sdist
     - name: Publish package
-      uses: pypa/gh-action-pypi-publish@717ba43cfbb0387f6ce311b169a825772f54d295
-      with:
-        user: __token__
-        # password: ${{ secrets.PYPI_API_TOKEN }}
-        password: ${{ secrets.TEST_PYPI_API_TOKEN }}
-        repository_url: https://test.pypi.org/legacy/
-        skip_existing: true
-        print_hash: true
-        verbose: true
+      env:
+        TWINE_USERNAME: __token__
+        TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+      run: |
+        twine check dist/*.tar.gz
+        twine upload \
+          --skip-existing \
+          --verbose \
+          --repository testpypi \
+          dist/*.tar.gz
