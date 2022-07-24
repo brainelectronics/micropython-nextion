@@ -11,8 +11,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 ### Fixed
 -->
+<!--
+RegEx for release version from file
+r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
+-->
 
 ## Released
+## [0.4.0] - 2022-07-24
+### Added
+- `clearChannel(channel)` in [`nextion_waveform`](nextion/nextion_waveform.py)
+  to clear a waveform channel data
+- Script to [update version file](update_version.py) based on changelog entry
+- [Requirements file](requirements-deploy.txt) for GitHub CI python publish
+  workflow
+- [GitHub CI python publish workflow](.github/workflows/python-publish.yml)
+
+### Fixed
+- Replace undefined `__author__` in [`setup.py`](setup.py)
+- Add missing shebang header to [`version`](nextion/version.py) file
+
 ## [0.3.0] - 2022-07-22
 ### Added
 - Function `hide()` and `show()` for all supported Nextion elements to hide
@@ -51,8 +68,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [Example HMI file](examples/everything.HMI) to be used for all examples
 
 <!-- Links -->
-[Unreleased]: https://github.com/brainelectronics/micropython-nextion/compare/0.3.0...develop
+[Unreleased]: https://github.com/brainelectronics/micropython-nextion/compare/0.4.0...develop
 
+[0.4.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.4.0
 [0.3.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.3.0
 [0.2.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.2.0
 [0.1.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.1.0
