@@ -3,10 +3,12 @@
 
 name: Upload Python Package
 
-on:
-  push:
-    branches:
-      - develop
+on: [push]
+
+# on:
+#   push:
+#     branches:
+#       - develop
 
 permissions:
   contents: read
@@ -36,7 +38,7 @@ jobs:
     - name: Publish package
       env:
         TWINE_USERNAME: __token__
-        TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+        TWINE_PASSWORD: ${{ secrets.TEST_PYPI_API_TOKEN }}
       run: |
         twine check dist/*.tar.gz
         twine upload \
