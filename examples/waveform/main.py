@@ -40,6 +40,14 @@ for x in range(0, 100):
     s0.addValue(2, channel_2_value)
     s0.addValue(3, channel_3_value)
     time.sleep(0.1)
+print()
+
+time.sleep(1)
+
+# remove channel 0 waveform
+print('Removing channel 0 waveform...')
+s0.clearChannel(0)
+print()
 
 print('Returning to REPL in 5 seconds')
 
