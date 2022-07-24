@@ -1,7 +1,7 @@
 # List external packages here
 # Avoid fixed versions
 # # to upload package to PyPi or other package hosts
-# twine>=4.0.1,<5
+twine>=4.0.1,<5
 
 # to parse changelog semver
 semver>=2.13.0,<3
