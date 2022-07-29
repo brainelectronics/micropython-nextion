@@ -92,31 +92,92 @@ class Common(object):
         return self._nh.recvRetCommandFinished()
 
 
-class CommonValueMixin(object):
-    """docstring for CommonValueMixin"""
-    def getValue(self) -> int:
+class CommonBackgroundColorMixin(object):
+    """docstring for CommonBackgroundColorMixin"""
+    def Get_background_color_bco(self) -> int:
         """
-        Get value attribute of component
+        Get background color attribute of component
 
-        :returns:   The value.
+        :returns:   The background color
         :rtype:     int
         """
-        cmd = "get {}.val".format(self.name)
+        cmd = "get {}.bco".format(self.name)
         self._nh.sendCommand(cmd)
         sleep(0.1)  # necessary, data might not be available otherwise
         return self._nh.recvRetNumber()
 
-    def setValue(self, value: int) -> bool:
+    def Set_background_color_bco(self, number: int) -> bool:
         """
-        Set value attribute of component.
+        Set background color attribute of component
 
-        :param      text:  The value
-        :type       text:  int
+        :param      number:  The background color number
+        :type       number:  int
 
         :returns:   True on success, false otherwise
         :rtype:     bool
         """
-        cmd = '{}.val={}'.format(self.name, value)
+        cmd = "{}.bco={}".format(self.name, number)
+        self._nh.sendCommand(cmd)
+        cmd = "ref {}".format(self.name)
+        self._nh.sendCommand(cmd)
+        return self._nh.recvRetCommandFinished()
+
+
+class CommonFontMixin(object):
+    """docstring for CommonFontMixin"""
+    def Get_font_color_pco(self) -> int:
+        """
+        Get font color attribute of component
+
+        :returns:   The font color
+        :rtype:     int
+        """
+        cmd = "get {}.pco".format(self.name)
+        self._nh.sendCommand(cmd)
+        sleep(0.1)  # necessary, data might not be available otherwise
+        return self._nh.recvRetNumber()
+
+    def Set_font_color_pco(self, number: int) -> bool:
+        """
+        Set font color attribute of component
+
+        :param      number:  The font color number
+        :type       number:  int
+
+        :returns:   True on success, false otherwise
+        :rtype:     bool
+        """
+        cmd = "{}.pco={}".format(self.name, number)
+        self._nh.sendCommand(cmd)
+        cmd = "ref {}".format(self.name)
+        self._nh.sendCommand(cmd)
+        return self._nh.recvRetCommandFinished()
+
+    def getFont(self) -> int:
+        """
+        Get font attribute of component
+
+        :returns:   The font color
+        :rtype:     int
+        """
+        cmd = "get {}.font".format(self.name)
+        self._nh.sendCommand(cmd)
+        sleep(0.1)  # necessary, data might not be available otherwise
+        return self._nh.recvRetNumber()
+
+    def setFont(self, number: int) -> bool:
+        """
+        Set font attribute of component
+
+        :param      number:  The font number
+        :type       number:  int
+
+        :returns:   True on success, false otherwise
+        :rtype:     bool
+        """
+        cmd = "{}.font={}".format(self.name, number)
+        self._nh.sendCommand(cmd)
+        cmd = "ref {}".format(self.name)
         self._nh.sendCommand(cmd)
         return self._nh.recvRetCommandFinished()
 
@@ -137,7 +198,7 @@ class CommonTextMixin(object):
 
     def setText(self, text: str) -> bool:
         """
-        Set text attribute of component.
+        Set text attribute of component
 
         :param      text:  The text
         :type       text:  str
@@ -146,5 +207,34 @@ class CommonTextMixin(object):
         :rtype:     bool
         """
         cmd = '{}.txt="{}"'.format(self.name, text)
+        self._nh.sendCommand(cmd)
+        return self._nh.recvRetCommandFinished()
+
+
+class CommonValueMixin(object):
+    """docstring for CommonValueMixin"""
+    def getValue(self) -> int:
+        """
+        Get value attribute of component
+
+        :returns:   The value.
+        :rtype:     int
+        """
+        cmd = "get {}.val".format(self.name)
+        self._nh.sendCommand(cmd)
+        sleep(0.1)  # necessary, data might not be available otherwise
+        return self._nh.recvRetNumber()
+
+    def setValue(self, value: int) -> bool:
+        """
+        Set value attribute of component
+
+        :param      text:  The value
+        :type       text:  int
+
+        :returns:   True on success, false otherwise
+        :rtype:     bool
+        """
+        cmd = "{}.val={}".format(self.name, value)
         self._nh.sendCommand(cmd)
         return self._nh.recvRetCommandFinished()
