@@ -33,6 +33,8 @@ n0 = NexNumber(nh, 0, 1, "n0")
 number_value = randint(1, 100)
 background_color_value = 63488  # red
 font_color_value = 31           # blue
+x_offset = 20
+y_offset = 20
 
 # request the value of number "n0"
 print('Requesting number "{}" value ...'.format(n0.name))
@@ -116,6 +118,26 @@ print()
 # sanity check
 if response != font_color_value:
     print('WARNING: GET value did not match SET value')
+
+time.sleep(1)
+
+# request the x/y position of number "n0" again
+print('Requesting x/y position of number "{}" ...'.format(n0.name))
+x_position = n0.Get_place_xcen()
+y_position = n0.Get_place_ycen()
+print('Position of number "{}" is: "x={}", "y={}"'.
+      format(n0.name, x_position, y_position))
+print()
+
+x_position += x_offset
+y_position += y_offset
+
+# modify the x/y position of number "n0"
+print('Set x/y position of number "{}" to "x={}", "y={}"'.
+      format(n0.name, x_position, y_position))
+n0.Set_place_xcen(x_position)
+n0.Set_place_ycen(y_position)
+print()
 
 print('Returning to REPL in 5 seconds')
 

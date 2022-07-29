@@ -182,6 +182,65 @@ class CommonFontMixin(object):
         return self._nh.recvRetCommandFinished()
 
 
+class CommonPositionMixin(object):
+    """docstring for CommonPositionMixin"""
+    def Get_place_xcen(self) -> int:
+        """
+        Get xcen attribute of component
+
+        :returns:   The x position
+        :rtype:     int
+        """
+        cmd = "get {}.xcen".format(self.name)
+        self._nh.sendCommand(cmd)
+        sleep(0.1)  # necessary, data might not be available otherwise
+        return self._nh.recvRetNumber()
+
+    def Set_place_xcen(self, number: int) -> bool:
+        """
+        Get xcen attribute of component
+
+        :param      number:  The new x position
+        :type       number:  int
+
+        :returns:   True on success, false otherwise
+        :rtype:     bool
+        """
+        cmd = "{}.xcen={}".format(self.name, number)
+        self._nh.sendCommand(cmd)
+        cmd = "ref {}".format(self.name)
+        self._nh.sendCommand(cmd)
+        return self._nh.recvRetCommandFinished()
+
+    def Get_place_ycen(self) -> int:
+        """
+        Get ycen attribute of component
+
+        :returns:   The y position
+        :rtype:     int
+        """
+        cmd = "get {}.ycen".format(self.name)
+        self._nh.sendCommand(cmd)
+        sleep(0.1)  # necessary, data might not be available otherwise
+        return self._nh.recvRetNumber()
+
+    def Set_place_ycen(self, number: int) -> bool:
+        """
+        Get ycen attribute of component
+
+        :param      number:  The new y position
+        :type       number:  int
+
+        :returns:   True on success, false otherwise
+        :rtype:     bool
+        """
+        cmd = "{}.ycen={}".format(self.name, number)
+        self._nh.sendCommand(cmd)
+        cmd = "ref {}".format(self.name)
+        self._nh.sendCommand(cmd)
+        return self._nh.recvRetCommandFinished()
+
+
 class CommonTextMixin(object):
     """docstring for CommonTextMixin"""
     def getText(self) -> str:

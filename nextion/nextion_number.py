@@ -8,7 +8,7 @@ Functions to interact with a Nextion Number element
 """
 
 # custom packages
-from .common import Common, CommonBackgroundColorMixin, CommonFontMixin, CommonValueMixin
+from .common import Common, CommonBackgroundColorMixin, CommonFontMixin, CommonPositionMixin, CommonValueMixin
 
 
 class NexNumberError(Exception):
@@ -16,7 +16,7 @@ class NexNumberError(Exception):
     pass
 
 
-class NexNumber(Common, CommonBackgroundColorMixin, CommonFontMixin, CommonValueMixin):
+class NexNumber(Common, CommonBackgroundColorMixin, CommonFontMixin, CommonPositionMixin, CommonValueMixin):
     """docstring for NexNumber"""
     def __init__(self, nh, pid: int, cid: int, name: str) -> None:
         """

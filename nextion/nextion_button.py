@@ -8,7 +8,7 @@ Functions to interact with a Nextion Button element
 """
 
 # custom packages
-from .common import Common, CommonBackgroundColorMixin, CommonFontMixin, CommonTextMixin
+from .common import Common, CommonBackgroundColorMixin, CommonFontMixin, CommonPositionMixin, CommonTextMixin
 
 
 class NexButtonError(Exception):
@@ -16,7 +16,7 @@ class NexButtonError(Exception):
     pass
 
 
-class NexButton(Common, CommonBackgroundColorMixin, CommonFontMixin, CommonTextMixin):
+class NexButton(Common, CommonBackgroundColorMixin, CommonFontMixin, CommonPositionMixin, CommonTextMixin):
     """docstring for NexButton"""
     def __init__(self, nh, pid: int, cid: int, name: str) -> None:
         """

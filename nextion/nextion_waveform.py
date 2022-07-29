@@ -7,9 +7,6 @@ NexWaveform
 Functions to interact with a Nextion Waveform element
 """
 
-# system packages
-from time import sleep
-
 # custom packages
 from .common import Common, CommonBackgroundColorMixin
 

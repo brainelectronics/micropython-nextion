@@ -17,6 +17,22 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 -->
 
 ## Released
+## [0.6.0] - 2022-07-29
+### Added
+- Support `Get_place_xcen`, `Set_place_xcen`, `Get_place_ycen` and
+  `Set_place_ycen` by new class `CommonPositionMixin` in
+  [`common`](nextion/common.py)
+
+### Changed
+- Inherit from `CommonPositionMixin` in
+    - Button
+    - Dual state button
+    - Number
+    - Text
+
+### Fixed
+- Remove unused imports in nextion elements
+
 ## [0.5.0] - 2022-07-29
 ### Added
 - Support `Get_background_color_bco` and `Set_background_color_bco` by new
@@ -92,8 +108,9 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 - [Example HMI file](examples/everything.HMI) to be used for all examples
 
 <!-- Links -->
-[Unreleased]: https://github.com/brainelectronics/micropython-nextion/compare/0.5.0...develop
+[Unreleased]: https://github.com/brainelectronics/micropython-nextion/compare/0.6.0...develop
 
+[0.6.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.6.0
 [0.5.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.5.0
 [0.4.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.4.0
 [0.3.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.3.0
