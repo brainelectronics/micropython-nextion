@@ -32,6 +32,8 @@ t0 = NexText(nh, 0, 1, "t0")
 textfield_text = "other txt"
 background_color_value = 63488  # red
 font_color_value = 31           # blue
+x_offset = 20
+y_offset = 20
 
 # request the text of textfield "t0"
 print('Requesting textfield "{}" text ...'.format(t0.name))
@@ -115,6 +117,26 @@ print()
 # sanity check
 if response != font_color_value:
     print('WARNING: GET value did not match SET value')
+
+time.sleep(1)
+
+# request the x/y position of textfield "t0" again
+print('Requesting x/y position of textfield "{}" ...'.format(t0.name))
+x_position = t0.Get_place_xcen()
+y_position = t0.Get_place_ycen()
+print('Position of textfield "{}" is: "x={}", "y={}"'.
+      format(t0.name, x_position, y_position))
+print()
+
+x_position += x_offset
+y_position += y_offset
+
+# modify the x/y position of textfield "t0"
+print('Set x/y position of textfield "{}" to "x={}", "y={}"'.
+      format(t0.name, x_position, y_position))
+t0.Set_place_xcen(x_position)
+t0.Set_place_ycen(y_position)
+print()
 
 print('Returning to REPL in 5 seconds')
 
