@@ -182,6 +182,37 @@ class CommonFontMixin(object):
         return self._nh.recvRetCommandFinished()
 
 
+class CommonPointerMixin(object):
+    """docstring for CommonPointerMixin"""
+    def Get_pointer_thickness_wid(self) -> int:
+        """
+        Get pointer wid attribute of component
+
+        :returns:   The pointer thickness
+        :rtype:     int
+        """
+        cmd = "get {}.wid".format(self.name)
+        self._nh.sendCommand(cmd)
+        sleep(0.1)  # necessary, data might not be available otherwise
+        return self._nh.recvRetNumber()
+
+    def Set_pointer_thickness_wid(self, number: int) -> bool:
+        """
+        Set pointer hig attribute of component
+
+        :param      number:  The pointer thickness
+        :type       number:  int
+
+        :returns:   True on success, false otherwise
+        :rtype:     bool
+        """
+        cmd = "{}.wid={}".format(self.name, number)
+        self._nh.sendCommand(cmd)
+        cmd = "ref {}".format(self.name)
+        self._nh.sendCommand(cmd)
+        return self._nh.recvRetCommandFinished()
+
+
 class CommonPositionMixin(object):
     """docstring for CommonPositionMixin"""
     def Get_place_xcen(self) -> int:
