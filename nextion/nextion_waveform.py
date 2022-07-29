@@ -7,8 +7,11 @@ NexWaveform
 Functions to interact with a Nextion Waveform element
 """
 
+# system packages
+from time import sleep
+
 # custom packages
-from .common import Common
+from .common import Common, CommonBackgroundColorMixin
 
 
 class NexWaveformError(Exception):
@@ -16,11 +19,11 @@ class NexWaveformError(Exception):
     pass
 
 
-class NexWaveform(Common):
+class NexWaveform(Common, CommonBackgroundColorMixin):
     """docstring for NexWaveform"""
     def __init__(self, nh, pid: int, cid: int, name: str) -> None:
         """
-        Init page
+        Init waveform
 
         :param      nh:    The Nextion hardware interface object
         :type       nh:    NexHardware
