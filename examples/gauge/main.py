@@ -33,6 +33,7 @@ z0 = NexGauge(nh, 0, 1, "z0")
 gauge_value = randint(10, 350)
 background_color_value = 63488  # red
 font_color_value = 31           # blue
+pointer_thickness = 5
 
 # request the value of gauge "z0"
 print('Requesting gauge "{}" value ...'.format(z0.name))
@@ -112,6 +113,33 @@ print()
 
 # sanity check
 if response != font_color_value:
+    print('WARNING: GET value did not match SET value')
+
+time.sleep(1)
+
+# request the pointer thickness of gauge "z0"
+print('Requesting pointer thickness of gauge "{}" ...'.format(z0.name))
+response = z0.Get_pointer_thickness_wid()
+print('Pointer thickness of gauge "{}" is: "{}"'.format(z0.name, response))
+print()
+
+time.sleep(1)
+
+# modify the pointer thickness of gauge "z0"
+print('Set pointer thickness of gauge "{}" to "{}"'.format(z0.name, pointer_thickness))
+z0.Set_pointer_thickness_wid(pointer_thickness)
+print()
+
+time.sleep(1)
+
+# request the pointer thickness of gauge "z0" again
+print('Requesting pointer thickness of gauge "{}" ...'.format(z0.name))
+response = z0.Get_pointer_thickness_wid()
+print('Pointer thickness of gauge "{}" is: "{}"'.format(z0.name, response))
+print()
+
+# sanity check
+if response != pointer_thickness:
     print('WARNING: GET value did not match SET value')
 
 print('Returning to REPL in 5 seconds')
