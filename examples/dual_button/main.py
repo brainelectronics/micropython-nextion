@@ -31,7 +31,9 @@ bt0 = NexDSButton(nh, 0, 1, "bt0")
 # new values for dual state button
 button_text = "btn txt"
 button_value = 1    # 1 is active (green), 0 is inactive (grey)
-font_color_value = 31           # blue
+font_color_value = 31   # blue
+x_offset = 20
+y_offset = 20
 
 # request the text of dual state button "bt0"
 print('Requesting dual state button "{}" text ...'.format(bt0.name))
@@ -107,6 +109,26 @@ print()
 # sanity check
 if response != font_color_value:
     print('WARNING: GET value did not match SET value')
+
+time.sleep(1)
+
+# request the x/y position of dual state button "bt0" again
+print('Requesting x/y position of dual state button "{}" ...'.format(bt0.name))
+x_position = bt0.Get_place_xcen()
+y_position = bt0.Get_place_ycen()
+print('Position of dual state button "{}" is: "x={}", "y={}"'.
+      format(bt0.name, x_position, y_position))
+print()
+
+x_position += x_offset
+y_position += y_offset
+
+# modify the x/y position of dual state button "bt0"
+print('Set x/y position of dual state button "{}" to "x={}", "y={}"'.
+      format(bt0.name, x_position, y_position))
+bt0.Set_place_xcen(x_position)
+bt0.Set_place_ycen(y_position)
+print()
 
 print('Returning to REPL in 5 seconds')
 
