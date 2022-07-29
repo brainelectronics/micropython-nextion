@@ -20,8 +20,7 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 ## [0.7.0] - 2022-07-29
 ### Added
 - Support `Get_pointer_thickness_wid` and `Set_pointer_thickness_wid` by new
-  class `CommonPointerMixin` in
-  [`common`](nextion/common.py)
+  class `CommonPointerMixin` in [`common`](nextion/common.py)
 
 ### Changed
 - Inherit from `CommonPointerMixin` in
