@@ -8,7 +8,7 @@ Functions to interact with a Nextion Progressbar element
 """
 
 # custom packages
-from .common import Common, CommonValueMixin
+from .common import Common, CommonBackgroundColorMixin, CommonFontMixin, CommonValueMixin
 
 
 class NexProgressBarError(Exception):
@@ -16,7 +16,7 @@ class NexProgressBarError(Exception):
     pass
 
 
-class NexProgressBar(Common, CommonValueMixin):
+class NexProgressBar(Common, CommonBackgroundColorMixin, CommonFontMixin, CommonValueMixin):
     """docstring for NexProgressBar"""
     def __init__(self, nh, pid: int, cid: int, name: str) -> None:
         """
@@ -32,3 +32,10 @@ class NexProgressBar(Common, CommonValueMixin):
         :type       name:  str
         """
         super().__init__(nh, pid, cid, name)
+
+        CommonFontMixin_unsupported_functions = [
+            "getFont",
+            "setFont",
+        ]
+        for attr_name in CommonFontMixin_unsupported_functions:
+            delattr(CommonFontMixin, attr_name)

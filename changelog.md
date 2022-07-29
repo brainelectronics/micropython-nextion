@@ -17,6 +17,30 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 -->
 
 ## Released
+## [0.5.0] - 2022-07-29
+### Added
+- Support `Get_background_color_bco` and `Set_background_color_bco` by new
+  class `CommonBackgroundColorMixin` in [`common`](nextion/common.py)
+- Support `Get_font_color_pco`, `Set_font_color_pco`, `getFont` and `setFont`
+  by new class `CommonFontMixin` in [`common`](nextion/common.py)
+
+### Changed
+- Inherit from `CommonFontMixin` and `CommonBackgroundColorMixin` in
+    - Button
+    - Checkbox
+    - Dual state button
+    - Gauge
+    - Number
+    - Progressbar
+    - Radio
+    - Slider
+    - Text
+    - Waveform
+
+### Fixed
+- Remove unsupported `CommonValueMixin` from Button
+- Some typos in comments
+
 ## [0.4.0] - 2022-07-24
 ### Added
 - `clearChannel(channel)` in [`nextion_waveform`](nextion/nextion_waveform.py)
@@ -68,8 +92,9 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 - [Example HMI file](examples/everything.HMI) to be used for all examples
 
 <!-- Links -->
-[Unreleased]: https://github.com/brainelectronics/micropython-nextion/compare/0.4.0...develop
+[Unreleased]: https://github.com/brainelectronics/micropython-nextion/compare/0.5.0...develop
 
+[0.5.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.5.0
 [0.4.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.4.0
 [0.3.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.3.0
 [0.2.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.2.0

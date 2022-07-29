@@ -28,13 +28,15 @@ nh.nexInit()
 # create a checkbox instance
 c0 = NexCheckbox(nh, 0, 1, "c0")
 
-# new value of checkbox
+# new values of checkbox
 checkbox_value = 0
+background_color_value = 63488  # red
+font_color_value = 31           # blue
 
 # request the value of checkbox "c0"
 print('Requesting checkbox "{}" value ...'.format(c0.name))
 response = c0.getValue()
-print('checkbox "{}" value is: "{}"'.format(c0.name, response))
+print('Checkbox "{}" value is: "{}"'.format(c0.name, response))
 print()
 
 time.sleep(1)
@@ -49,12 +51,75 @@ time.sleep(1)
 # request the value of checkbox "c0" again
 print('Requesting checkbox "{}" value ...'.format(c0.name))
 response = c0.getValue()
-print('checkbox "{}" value is: "{}"'.format(c0.name, response))
+print('Checkbox "{}" value is: "{}"'.format(c0.name, response))
 print()
 
 # sanity check
 if response != checkbox_value:
     print('WARNING: GET value did not match SET value')
+
+time.sleep(1)
+
+# request the background color of checkbox "c0"
+print('Requesting background color of checkbox "{}" ...'.format(c0.name))
+response = c0.Get_background_color_bco()
+print('Background color of checkbox "{}" is: "{}"'.format(c0.name, response))
+print()
+
+time.sleep(1)
+
+# modify the background color of checkbox "c0" to "red"
+# search for RGB565 Colors. Red is "63488" at 65k colors
+print('Set background color of checkbox "{}" to "{}"'.
+      format(c0.name, background_color_value))
+c0.Set_background_color_bco(background_color_value)
+print()
+
+time.sleep(1)
+
+# request the background color of checkbox "c0" again
+print('Requesting background color of checkbox "{}" ...'.format(c0.name))
+response = c0.Get_background_color_bco()
+print('Background color of checkbox "{}" is: "{}"'.format(c0.name, response))
+print()
+
+# sanity check
+if response != background_color_value:
+    print('WARNING: GET value did not match SET value')
+
+time.sleep(1)
+
+# request the font color of checkbox "c0"
+print('Requesting font color of checkbox "{}" ...'.format(c0.name))
+response = c0.Get_font_color_pco()
+print('Font color of checkbox "{}" is: "{}"'.format(c0.name, response))
+print()
+
+time.sleep(1)
+
+# enable checkbox "c0" again to make change in font color visible
+c0.setValue(1)
+
+# modify the font color of checkbox "c0" to "blue"
+# search for RGB565 Colors. Blue is "31" at 65k colors
+print('Set font color of checkbox "{}" to "{}"'.
+      format(c0.name, font_color_value))
+c0.Set_font_color_pco(font_color_value)
+print()
+
+time.sleep(1)
+
+# request the font color of checkbox "c0" again
+print('Requesting font color of checkbox "{}" ...'.format(c0.name))
+response = c0.Get_font_color_pco()
+print('Font color of checkbox "{}" is: "{}"'.format(c0.name, response))
+print()
+
+# sanity check
+if response != font_color_value:
+    print('WARNING: GET value did not match SET value')
+
+time.sleep(1)
 
 print('Returning to REPL in 5 seconds')
 

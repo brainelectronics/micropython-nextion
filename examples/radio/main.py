@@ -28,8 +28,10 @@ nh.nexInit()
 # create a radio instance
 r0 = NexRadio(nh, 0, 1, "r0")
 
-# new state of radio
+# new values of radio
 radio_state = 0
+background_color_value = 63488  # red
+font_color_value = 31           # blue
 
 # request the state of radio "r0"
 print('Requesting radio "{}" value ...'.format(r0.name))
@@ -54,6 +56,67 @@ print()
 
 # sanity check
 if response != radio_state:
+    print('WARNING: GET value did not match SET value')
+
+time.sleep(1)
+
+# request the background color of radio "r0"
+print('Requesting background color of radio "{}" ...'.format(r0.name))
+response = r0.Get_background_color_bco()
+print('Background color of radio "{}" is: "{}"'.format(r0.name, response))
+print()
+
+time.sleep(1)
+
+# modify the background color of radio "r0" to "red"
+# search for RGB565 Colors. Red is "63488" at 65k colors
+print('Set background color of radio "{}" to "{}"'.
+      format(r0.name, background_color_value))
+r0.Set_background_color_bco(background_color_value)
+print()
+
+time.sleep(1)
+
+# request the background color of radio "r0" again
+print('Requesting background color of radio "{}" ...'.format(r0.name))
+response = r0.Get_background_color_bco()
+print('Background color of radio "{}" is: "{}"'.format(r0.name, response))
+print()
+
+# sanity check
+if response != background_color_value:
+    print('WARNING: GET value did not match SET value')
+
+time.sleep(1)
+
+# request the font color of radio "r0"
+print('Requesting font color of radio "{}" ...'.format(r0.name))
+response = r0.Get_font_color_pco()
+print('Font color of radio "{}" is: "{}"'.format(r0.name, response))
+print()
+
+time.sleep(1)
+
+# enable radio "r0" again to make change in font color visible
+r0.setValue(1)
+
+# modify the font color of radio "r0" to "blue"
+# search for RGB565 Colors. Blue is "31" at 65k colors
+print('Set font color of radio "{}" to "{}"'.
+      format(r0.name, font_color_value))
+r0.Set_font_color_pco(font_color_value)
+print()
+
+time.sleep(1)
+
+# request the font color of radio "r0" again
+print('Requesting font color of radio "{}" ...'.format(r0.name))
+response = r0.Get_font_color_pco()
+print('Font color of radio "{}" is: "{}"'.format(r0.name, response))
+print()
+
+# sanity check
+if response != font_color_value:
     print('WARNING: GET value did not match SET value')
 
 print('Returning to REPL in 5 seconds')

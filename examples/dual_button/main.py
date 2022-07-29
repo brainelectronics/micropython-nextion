@@ -28,9 +28,10 @@ nh.nexInit()
 # create a dual state button instance
 bt0 = NexDSButton(nh, 0, 1, "bt0")
 
-# new text and value for dual state button
+# new values for dual state button
 button_text = "btn txt"
 button_value = 1    # 1 is active (green), 0 is inactive (grey)
+font_color_value = 31           # blue
 
 # request the text of dual state button "bt0"
 print('Requesting dual state button "{}" text ...'.format(bt0.name))
@@ -75,6 +76,37 @@ if response_text != button_text:
     print('WARNING: GET text value did not match SET text value')
 if response_value != button_value:
     print('WARNING: GET state value did not match SET state value')
+
+time.sleep(1)
+
+# request the font color of dual state button "bt0"
+print('Requesting font color of dual state button "{}" ...'.format(bt0.name))
+response = bt0.Get_font_color_pco()
+print('Font color of dual state button "{}" is: "{}"'.
+      format(bt0.name, response))
+print()
+
+time.sleep(1)
+
+# modify the font color of dual state button "bt0" to "blue"
+# search for RGB565 Colors. Blue is "31" at 65k colors
+print('Set font color of dual state button "{}" to "{}"'.
+      format(bt0.name, font_color_value))
+bt0.Set_font_color_pco(font_color_value)
+print()
+
+time.sleep(1)
+
+# request the font color of dual state button "bt0" again
+print('Requesting font color of dual state button "{}" ...'.format(bt0.name))
+response = bt0.Get_font_color_pco()
+print('Font color of dual state button "{}" is: "{}"'.
+      format(bt0.name, response))
+print()
+
+# sanity check
+if response != font_color_value:
+    print('WARNING: GET value did not match SET value')
 
 print('Returning to REPL in 5 seconds')
 

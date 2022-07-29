@@ -28,6 +28,9 @@ nh.nexInit()
 # create a waveform instance (CID is 14, see HMI file)
 s0 = NexWaveform(nh, 0, 14, "s0")
 
+# new values of waveform
+background_color_value = 63488  # red
+
 # modify waveform "s0"
 print('Add datapoints to waveform "{}"'.format(s0.name))
 for x in range(0, 100):
@@ -48,6 +51,37 @@ time.sleep(1)
 print('Removing channel 0 waveform...')
 s0.clearChannel(0)
 print()
+
+time.sleep(1)
+
+# request the background color of waveform "s0"
+print('Requesting background color of waveform "{}" ...'.format(s0.name))
+response = s0.Get_background_color_bco()
+print('Background color of waveform "{}" is: "{}"'.format(s0.name, response))
+print()
+
+time.sleep(1)
+
+# modify the background color of waveform "s0" to "red"
+# search for RGB565 Colors. Red is "63488" at 65k colors
+print('Set background color of waveform "{}" to "{}"'.
+      format(s0.name, background_color_value))
+s0.Set_background_color_bco(background_color_value)
+print()
+
+time.sleep(1)
+
+# request the background color of waveform "s0" again
+print('Requesting background color of waveform "{}" ...'.format(s0.name))
+response = s0.Get_background_color_bco()
+print('Background color of waveform "{}" is: "{}"'.format(s0.name, response))
+print()
+
+# sanity check
+if response != background_color_value:
+    print('WARNING: GET value did not match SET value')
+
+time.sleep(1)
 
 print('Returning to REPL in 5 seconds')
 

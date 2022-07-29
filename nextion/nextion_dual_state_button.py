@@ -7,8 +7,11 @@ NexDSButton
 Functions to interact with a Nextion dual state Button element
 """
 
+# system packages
+from time import sleep
+
 # custom packages
-from .common import Common, CommonTextMixin, CommonValueMixin
+from .common import Common, CommonFontMixin, CommonTextMixin, CommonValueMixin
 
 
 class NexDSButtonError(Exception):
@@ -16,7 +19,7 @@ class NexDSButtonError(Exception):
     pass
 
 
-class NexDSButton(Common, CommonTextMixin, CommonValueMixin):
+class NexDSButton(Common, CommonFontMixin, CommonTextMixin, CommonValueMixin):
     """docstring for NexDSButton"""
     def __init__(self, nh, pid: int, cid: int, name: str) -> None:
         """

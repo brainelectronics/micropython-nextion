@@ -8,7 +8,7 @@ Functions to interact with a Nextion Gauge element
 """
 
 # custom packages
-from .common import Common, CommonValueMixin
+from .common import Common, CommonBackgroundColorMixin, CommonFontMixin, CommonValueMixin
 
 
 class NexGaugeError(Exception):
@@ -16,7 +16,7 @@ class NexGaugeError(Exception):
     pass
 
 
-class NexGauge(Common, CommonValueMixin):
+class NexGauge(Common, CommonBackgroundColorMixin, CommonFontMixin, CommonValueMixin):
     """docstring for NexGauge"""
     def __init__(self, nh, pid: int, cid: int, name: str) -> None:
         """
@@ -32,3 +32,10 @@ class NexGauge(Common, CommonValueMixin):
         :type       name:  str
         """
         super().__init__(nh, pid, cid, name)
+
+        CommonFontMixin_unsupported_functions = [
+            "getFont",
+            "setFont",
+        ]
+        for attr_name in CommonFontMixin_unsupported_functions:
+            delattr(CommonFontMixin, attr_name)

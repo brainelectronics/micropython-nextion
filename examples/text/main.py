@@ -28,10 +28,12 @@ nh.nexInit()
 # create a textfield instance
 t0 = NexText(nh, 0, 1, "t0")
 
-# new text of button
+# new values of text
 textfield_text = "other txt"
+background_color_value = 63488  # red
+font_color_value = 31           # blue
 
-# request the text textfield "t0"
+# request the text of textfield "t0"
 print('Requesting textfield "{}" text ...'.format(t0.name))
 response = t0.getText()
 print('Textfield "{}" text is: "{}"'.format(t0.name, response))
@@ -54,6 +56,64 @@ print()
 
 # sanity check
 if response != textfield_text:
+    print('WARNING: GET value did not match SET value')
+
+time.sleep(1)
+
+# request the background color of textfield "t0"
+print('Requesting background color of textfield "{}" ...'.format(t0.name))
+response = t0.Get_background_color_bco()
+print('Background color of textfield "{}" is: "{}"'.format(t0.name, response))
+print()
+
+time.sleep(1)
+
+# modify the background color of textfield "t0" to "red"
+# search for RGB565 Colors. Red is "63488" at 65k colors
+print('Set background color of textfield "{}" to "{}"'.
+      format(t0.name, background_color_value))
+t0.Set_background_color_bco(background_color_value)
+print()
+
+time.sleep(1)
+
+# request the background color of textfield "t0" again
+print('Requesting background color of textfield "{}" ...'.format(t0.name))
+response = t0.Get_background_color_bco()
+print('Background color of textfield "{}" is: "{}"'.format(t0.name, response))
+print()
+
+# sanity check
+if response != background_color_value:
+    print('WARNING: GET value did not match SET value')
+
+time.sleep(1)
+
+# request the font color of textfield "t0"
+print('Requesting font color of textfield "{}" ...'.format(t0.name))
+response = t0.Get_font_color_pco()
+print('Font color of textfield "{}" is: "{}"'.format(t0.name, response))
+print()
+
+time.sleep(1)
+
+# modify the font color of textfield "t0" to "blue"
+# search for RGB565 Colors. Blue is "31" at 65k colors
+print('Set font color of textfield "{}" to "{}"'.
+      format(t0.name, font_color_value))
+t0.Set_font_color_pco(font_color_value)
+print()
+
+time.sleep(1)
+
+# request the font color of textfield "t0" again
+print('Requesting font color of textfield "{}" ...'.format(t0.name))
+response = t0.Get_font_color_pco()
+print('Font color of textfield "{}" is: "{}"'.format(t0.name, response))
+print()
+
+# sanity check
+if response != font_color_value:
     print('WARNING: GET value did not match SET value')
 
 print('Returning to REPL in 5 seconds')

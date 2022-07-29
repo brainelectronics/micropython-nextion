@@ -29,8 +29,10 @@ nh.nexInit()
 # create a number instance
 n0 = NexNumber(nh, 0, 1, "n0")
 
-# new value of number field
+# new values of number field
 number_value = randint(1, 100)
+background_color_value = 63488  # red
+font_color_value = 31           # blue
 
 # request the value of number "n0"
 print('Requesting number "{}" value ...'.format(n0.name))
@@ -55,6 +57,64 @@ print()
 
 # sanity check
 if response != number_value:
+    print('WARNING: GET value did not match SET value')
+
+time.sleep(1)
+
+# request the background color of number "n0"
+print('Requesting background color of number "{}" ...'.format(n0.name))
+response = n0.Get_background_color_bco()
+print('Background color of number "{}" is: "{}"'.format(n0.name, response))
+print()
+
+time.sleep(1)
+
+# modify the background color of number "n0" to "red"
+# search for RGB565 Colors. Red is "63488" at 65k colors
+print('Set background color of number "{}" to "{}"'.
+      format(n0.name, background_color_value))
+n0.Set_background_color_bco(background_color_value)
+print()
+
+time.sleep(1)
+
+# request the background color of number "n0" again
+print('Requesting background color of number "{}" ...'.format(n0.name))
+response = n0.Get_background_color_bco()
+print('Background color of number "{}" is: "{}"'.format(n0.name, response))
+print()
+
+# sanity check
+if response != background_color_value:
+    print('WARNING: GET value did not match SET value')
+
+time.sleep(1)
+
+# request the font color of number "n0"
+print('Requesting font color of number "{}" ...'.format(n0.name))
+response = n0.Get_font_color_pco()
+print('Font color of number "{}" is: "{}"'.format(n0.name, response))
+print()
+
+time.sleep(1)
+
+# modify the font color of number "n0" to "blue"
+# search for RGB565 Colors. Blue is "31" at 65k colors
+print('Set font color of number "{}" to "{}"'.
+      format(n0.name, font_color_value))
+n0.Set_font_color_pco(font_color_value)
+print()
+
+time.sleep(1)
+
+# request the font color of number "n0" again
+print('Requesting font color of number "{}" ...'.format(n0.name))
+response = n0.Get_font_color_pco()
+print('Font color of number "{}" is: "{}"'.format(n0.name, response))
+print()
+
+# sanity check
+if response != font_color_value:
     print('WARNING: GET value did not match SET value')
 
 print('Returning to REPL in 5 seconds')
