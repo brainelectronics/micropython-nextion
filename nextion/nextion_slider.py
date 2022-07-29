@@ -8,7 +8,7 @@ Functions to interact with a Nextion Slider element
 """
 
 # custom packages
-from .common import Common, CommonBackgroundColorMixin, CommonFontMixin, CommonValueMixin
+from .common import Common, CommonBackgroundColorMixin, CommonFontMixin, CommonPointerMixin, CommonValueMixin
 
 
 class NexSliderError(Exception):
@@ -16,7 +16,7 @@ class NexSliderError(Exception):
     pass
 
 
-class NexSlider(Common, CommonBackgroundColorMixin, CommonFontMixin, CommonValueMixin):
+class NexSlider(Common, CommonBackgroundColorMixin, CommonFontMixin, CommonPointerMixin, CommonValueMixin):
     """docstring for NexSlider"""
     def __init__(self, nh, pid: int, cid: int, name: str) -> None:
         """
