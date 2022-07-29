@@ -126,7 +126,8 @@ print()
 time.sleep(1)
 
 # modify the pointer thickness of gauge "z0"
-print('Set pointer thickness of gauge "{}" to "{}"'.format(z0.name, pointer_thickness))
+print('Set pointer thickness of gauge "{}" to "{}"'.
+      format(z0.name, pointer_thickness))
 z0.Set_pointer_thickness_wid(pointer_thickness)
 print()
 
