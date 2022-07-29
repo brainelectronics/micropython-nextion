@@ -8,7 +8,7 @@ Functions to interact with a Nextion Radio element
 """
 
 # custom packages
-from .common import Common, CommonValueMixin
+from .common import Common, CommonBackgroundColorMixin, CommonFontMixin, CommonValueMixin
 
 
 class NexRadioError(Exception):
@@ -16,7 +16,7 @@ class NexRadioError(Exception):
     pass
 
 
-class NexRadio(Common, CommonValueMixin):
+class NexRadio(Common, CommonBackgroundColorMixin, CommonFontMixin, CommonValueMixin):
     """docstring for NexRadio"""
     def __init__(self, nh, pid: int, cid: int, name: str) -> None:
         """
@@ -32,3 +32,10 @@ class NexRadio(Common, CommonValueMixin):
         :type       name:  str
         """
         super().__init__(nh, pid, cid, name)
+
+        CommonFontMixin_unsupported_functions = [
+            "getFont",
+            "setFont",
+        ]
+        for attr_name in CommonFontMixin_unsupported_functions:
+            delattr(CommonFontMixin, attr_name)
