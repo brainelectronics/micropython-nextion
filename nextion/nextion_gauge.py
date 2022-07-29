@@ -8,7 +8,7 @@ Functions to interact with a Nextion Gauge element
 """
 
 # custom packages
-from .common import Common, CommonBackgroundColorMixin, CommonFontMixin, CommonValueMixin
+from .common import Common, CommonBackgroundColorMixin, CommonFontMixin, CommonPointerMixin, CommonValueMixin
 
 
 class NexGaugeError(Exception):
@@ -16,7 +16,7 @@ class NexGaugeError(Exception):
     pass
 
 
-class NexGauge(Common, CommonBackgroundColorMixin, CommonFontMixin, CommonValueMixin):
+class NexGauge(Common, CommonBackgroundColorMixin, CommonFontMixin, CommonPointerMixin, CommonValueMixin):
     """docstring for NexGauge"""
     def __init__(self, nh, pid: int, cid: int, name: str) -> None:
         """

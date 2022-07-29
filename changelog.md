@@ -17,6 +17,16 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 -->
 
 ## Released
+## [0.7.0] - 2022-07-29
+### Added
+- Support `Get_pointer_thickness_wid` and `Set_pointer_thickness_wid` by new
+  class `CommonPointerMixin` in [`common`](nextion/common.py)
+
+### Changed
+- Inherit from `CommonPointerMixin` in
+    - Gauge
+    - Slider
+
 ## [0.6.0] - 2022-07-29
 ### Added
 - Support `Get_place_xcen`, `Set_place_xcen`, `Get_place_ycen` and
@@ -108,8 +118,9 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 - [Example HMI file](examples/everything.HMI) to be used for all examples
 
 <!-- Links -->
-[Unreleased]: https://github.com/brainelectronics/micropython-nextion/compare/0.6.0...develop
+[Unreleased]: https://github.com/brainelectronics/micropython-nextion/compare/0.7.0...develop
 
+[0.7.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.7.0
 [0.6.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.6.0
 [0.5.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.5.0
 [0.4.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.4.0

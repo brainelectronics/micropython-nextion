@@ -34,6 +34,7 @@ h0 = NexSlider(nh, 0, 1, "h0")
 slider_value = choice([randint(5, 40), randint(60, 100)])
 background_color_value = 63488  # red
 font_color_value = 31           # blue
+pointer_thickness = 5
 
 # request the value of slider "h0"
 print('Requesting slider "{}" value ...'.format(h0.name))
@@ -116,6 +117,34 @@ print()
 
 # sanity check
 if response != font_color_value:
+    print('WARNING: GET value did not match SET value')
+
+time.sleep(1)
+
+# request the pointer thickness of slider "h0"
+print('Requesting pointer thickness of slider "{}" ...'.format(h0.name))
+response = h0.Get_pointer_thickness_wid()
+print('Pointer thickness of slider "{}" is: "{}"'.format(h0.name, response))
+print()
+
+time.sleep(1)
+
+# modify the pointer thickness of slider "h0"
+print('Set pointer thickness of slider "{}" to "{}"'.
+      format(h0.name, pointer_thickness))
+h0.Set_pointer_thickness_wid(pointer_thickness)
+print()
+
+time.sleep(1)
+
+# request the pointer thickness of slider "h0" again
+print('Requesting pointer thickness of slider "{}" ...'.format(h0.name))
+response = h0.Get_pointer_thickness_wid()
+print('Pointer thickness of slider "{}" is: "{}"'.format(h0.name, response))
+print()
+
+# sanity check
+if response != pointer_thickness:
     print('WARNING: GET value did not match SET value')
 
 print('Returning to REPL in 5 seconds')
