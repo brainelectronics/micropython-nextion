@@ -37,6 +37,9 @@ slider_value = choice([randint(5, 40), randint(60, 100)])
 background_color_value = 63488  # red
 font_color_value = 31           # blue
 pointer_thickness = 5
+cursor_height = 5
+slider_max = 150
+slider_min = 10
 
 # ============================================================================
 # ============================== Value functions =============================
@@ -155,6 +158,96 @@ print()
 
 # sanity check
 if response != pointer_thickness:
+    print('WARNING: GET value did not match SET value')
+
+time.sleep(1)
+
+# ============================================================================
+# ============================ Special functions =============================
+# ============================================================================
+# ============================= Cursor functions =============================
+# request the cursor height of slider "h0"
+print('Requesting cursor height of slider "{}" ...'.format(h0.name))
+response = h0.Get_cursor_height_hig()
+print('Cursor height of slider "{}" is: "{}"'.format(h0.name, response))
+print()
+
+time.sleep(1)
+
+# modify the cursor height of slider "h0"
+print('Set cursor height of slider "{}" to "{}"'.
+      format(h0.name, cursor_height))
+h0.Set_cursor_height_hig(cursor_height)
+print()
+
+time.sleep(1)
+
+# request the cursor height of slider "h0" again
+print('Requesting cursor height of slider "{}" ...'.format(h0.name))
+response = h0.Get_cursor_height_hig()
+print('Cursor height of slider "{}" is: "{}"'.format(h0.name, response))
+print()
+
+# sanity check
+if response != cursor_height:
+    print('WARNING: GET value did not match SET value')
+
+time.sleep(1)
+
+# ============================================================================
+# =========================== Value Limit functions ==========================
+# request the maximum value of slider "h0"
+print('Requesting maximum value of slider "{}" ...'.format(h0.name))
+response = h0.getMaxval()
+print('Maximum value of slider "{}" is: "{}"'.format(h0.name, response))
+print()
+
+time.sleep(1)
+
+# modify the maximum value of slider "h0"
+print('Set maximum value of slider "{}" to "{}"'.
+      format(h0.name, slider_max))
+h0.setMaxval(slider_max)
+print()
+
+time.sleep(1)
+
+# request the maximum value of slider "h0" again
+print('Requesting maximum value of slider "{}" ...'.format(h0.name))
+response = h0.getMaxval()
+print('cursor height of slider "{}" is: "{}"'.format(h0.name, response))
+print()
+
+# sanity check
+if response != slider_max:
+    print('WARNING: GET value did not match SET value')
+
+time.sleep(1)
+
+# request the minimum value of slider "h0"
+print('Requesting minimum value of slider "{}" ...'.format(h0.name))
+response = h0.getMinval()
+print('Minimum value of slider "{}" is: "{}"'.format(h0.name, response))
+print()
+
+time.sleep(1)
+
+# modify the minimum value of slider "h0"
+print('Set minimum value of slider "{}" to "{}"'.
+      format(h0.name, slider_min))
+h0.setMinval(slider_min)
+print()
+
+time.sleep(1)
+
+# request the minimum value of slider "h0" again
+print('Requesting minimum value of slider "{}" ...'.format(h0.name))
+response = h0.getMinval()
+print('cursor height of slider "{}" is: "{}"'.format(h0.name, response))
+print()
+
+# sanity check
+if response != slider_min:
     print('WARNING: GET value did not match SET value')
 
 # ============================================================================
