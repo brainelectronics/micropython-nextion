@@ -28,13 +28,19 @@ nh.nexInit()
 # create a button instance
 b0 = NexButton(nh, 0, 1, "b0")
 
+# ============================================================================
+# ============================== Example values ==============================
 # new values of button
 button_text = "btn txt"
 background_color_value = 63488  # red
 font_color_value = 31           # blue
+pressed_background_color_value = 64480  # orange
+pressed_font_color_value = 2047         # cyan
 x_offset = 20
 y_offset = 20
 
+# ============================================================================
+# ============================== Text functions ==============================
 # request the text of button "b0"
 print('Requesting button "{}" text ...'.format(b0.name))
 response = b0.getText()
@@ -62,6 +68,8 @@ if response != button_text:
 
 time.sleep(1)
 
+# ============================================================================
+# =========================== Background functions ===========================
 # request the background color of button "b0"
 print('Requesting background color of button "{}" ...'.format(b0.name))
 response = b0.Get_background_color_bco()
@@ -91,6 +99,8 @@ if response != background_color_value:
 
 time.sleep(1)
 
+# ============================================================================
+# ============================== Font functions ==============================
 # request the font color of button "b0"
 print('Requesting font color of button "{}" ...'.format(b0.name))
 response = b0.Get_font_color_pco()
@@ -120,6 +130,8 @@ if response != font_color_value:
 
 time.sleep(1)
 
+# ============================================================================
+# ============================ Position functions ============================
 # request the x/y position of button "b0" again
 print('Requesting x/y position of button "{}" ...'.format(b0.name))
 x_position = b0.Get_place_xcen()
@@ -138,6 +150,8 @@ b0.Set_place_xcen(x_position)
 b0.Set_place_ycen(y_position)
 print()
 
+# ============================================================================
+# ============================= End of example ===============================
 print('Returning to REPL in 5 seconds')
 
 # wait for 5 more seconds to safely finish the may still running threads
