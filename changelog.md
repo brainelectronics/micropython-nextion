@@ -17,6 +17,14 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 -->
 
 ## Released
+## [0.12.0] - 2022-07-30
+### Added
+- Support `NexRtc` usage with [`nextion_rtc`](nextion/nextion_rtc.py)
+
+### Fixed
+- Add missing documentation for [upload example](examples/upload/main.py) to
+  [examples README](examples/)
+
 ## [0.11.0] - 2022-07-30
 ### Added
 - Support `NexUpload` usage with [`nextion_upload`](nextion/nextion_upload.py)
@@ -156,8 +164,9 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 - [Example HMI file](examples/everything.HMI) to be used for all examples
 
 <!-- Links -->
-[Unreleased]: https://github.com/brainelectronics/micropython-nextion/compare/0.11.0...develop
+[Unreleased]: https://github.com/brainelectronics/micropython-nextion/compare/0.12.0...develop
 
+[0.12.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.12.0
 [0.11.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.11.0
 [0.10.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.10.0
 [0.9.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.9.0
