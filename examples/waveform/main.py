@@ -28,9 +28,13 @@ nh.nexInit()
 # create a waveform instance (CID is 14, see HMI file)
 s0 = NexWaveform(nh, 0, 14, "s0")
 
+# ============================================================================
+# ============================== Example values ==============================
 # new values of waveform
 background_color_value = 63488  # red
 
+# ============================================================================
+# ============================ Datapoint functions ===========================
 # modify waveform "s0"
 print('Add datapoints to waveform "{}"'.format(s0.name))
 for x in range(0, 100):
@@ -54,6 +58,8 @@ print()
 
 time.sleep(1)
 
+# ============================================================================
+# =========================== Background functions ===========================
 # request the background color of waveform "s0"
 print('Requesting background color of waveform "{}" ...'.format(s0.name))
 response = s0.Get_background_color_bco()
@@ -83,6 +89,8 @@ if response != background_color_value:
 
 time.sleep(1)
 
+# ============================================================================
+# ============================= End of example ===============================
 print('Returning to REPL in 5 seconds')
 
 # wait for 5 more seconds to safely finish the may still running threads
