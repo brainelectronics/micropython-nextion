@@ -150,6 +150,68 @@ b0.Set_place_xcen(x_position)
 b0.Set_place_ycen(y_position)
 print()
 
+time.sleep(1)
+
+# ============================================================================
+# ============================ Special functions =============================
+# request the pressed font color of button "b0"
+print('Requesting pressed font color of button "{}" ...'.format(b0.name))
+response = b0.Get_press_font_color_pco2()
+print('Pressed font color of button "{}" is: "{}"'.format(b0.name, response))
+print()
+
+time.sleep(1)
+
+# modify the pressed font color of button "b0" to "cyan"
+# search for RGB565 Colors. Cyan is "2047" at 65k colors
+print('Set font color of button "{}" to "{}"'.
+      format(b0.name, pressed_font_color_value))
+b0.Set_press_font_color_pco2(pressed_font_color_value)
+print()
+
+time.sleep(1)
+
+# request the pressed font color of button "b0" again
+print('Requesting pressed font color of button "{}" ...'.format(b0.name))
+response = b0.Get_press_font_color_pco2()
+print('Pressed font color of button "{}" is: "{}"'.format(b0.name, response))
+print()
+
+# sanity check
+if response != pressed_font_color_value:
+    print('WARNING: GET value did not match SET value')
+
+time.sleep(1)
+
+# request the pressed background color of button "b0"
+print('Requesting pressed background color of button "{}" ...'.format(b0.name))
+response = b0.Get_press_background_color_bco2()
+print('Pressed background color of button "{}" is: "{}"'.
+      format(b0.name, response))
+print()
+
+time.sleep(1)
+
+# modify the pressed background color of button "b0" to "orange"
+# search for RGB565 Colors. Red is "64480" at 65k colors
+print('Set pressed background color of button "{}" to "{}"'.
+      format(b0.name, pressed_background_color_value))
+b0.Set_press_background_color_bco2(pressed_background_color_value)
+print()
+
+time.sleep(1)
+
+# request the pressed background color of button "b0" again
+print('Requesting pressed background color of button "{}" ...'.format(b0.name))
+response = b0.Get_press_background_color_bco2()
+print('Pressed background color of button "{}" is: "{}"'.
+      format(b0.name, response))
+print()
+
+# sanity check
+if response != pressed_background_color_value:
+    print('WARNING: GET value did not match SET value')
+
 # ============================================================================
 # ============================= End of example ===============================
 print('Returning to REPL in 5 seconds')
