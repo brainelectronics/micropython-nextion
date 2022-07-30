@@ -74,7 +74,7 @@ jobs:
     - name: Archive build package artifact
       uses: actions/upload-artifact@v3
       with:
-        name: ${{ GITHUB_REPOSITORY }}_dist_branch.${{ GITHUB_REF_NAME }}_sha.${{ GITHUB_SHA }}_build.${{ GITHUB_RUN_ID }}
+        name: ${{ env.GITHUB_REPOSITORY }}_dist_branch.${{ env.GITHUB_REF_NAME }}_sha.${{ env.GITHUB_SHA }}_build.${{ env.GITHUB_RUN_ID }}
         # _py.${{ matrix.python-version }}
         path: dist/*.tar.gz
         retention-days: 14
