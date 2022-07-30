@@ -32,6 +32,10 @@ s0 = NexWaveform(nh, 0, 14, "s0")
 # ============================== Example values ==============================
 # new values of waveform
 background_color_value = 63488  # red
+grid_color_value = 31           # blue
+grid_width = 20
+grid_height = 20
+channel_0_color = 64480         # orange
 
 # ============================================================================
 # ============================ Datapoint functions ===========================
@@ -88,6 +92,124 @@ if response != background_color_value:
     print('WARNING: GET value did not match SET value')
 
 time.sleep(1)
+
+# ============================================================================
+# ============================ Special functions =============================
+# ============================================================================
+# =========================== Grid color functions ===========================
+# request the grid color of waveform "s0"
+print('Requesting grid color of waveform "{}" ...'.format(s0.name))
+response = s0.Get_grid_color_gdc()
+print('Grid color color of waveform "{}" is: "{}"'.format(s0.name, response))
+print()
+
+time.sleep(1)
+
+# modify the grid color of waveform "s0" to "blue"
+# search for RGB565 Colors. Blue is "31" at 65k colors
+print('Set grid color of waveform "{}" to "{}"'.
+      format(s0.name, grid_color_value))
+s0.Set_grid_color_gdc(grid_color_value)
+print()
+
+time.sleep(1)
+
+# request the grid color of waveform "s0" again
+print('Requesting grid color of waveform "{}" ...'.format(s0.name))
+response = s0.Get_grid_color_gdc()
+print('Grid color of waveform "{}" is: "{}"'.format(s0.name, response))
+print()
+
+# sanity check
+if response != grid_color_value:
+    print('WARNING: GET value did not match SET value')
+
+time.sleep(1)
+
+# ============================================================================
+# ========================= Channel color functions ==========================
+# request the channel 0 color of waveform "s0"
+print('Requesting channel 0 color of waveform "{}" ...'.format(s0.name))
+response = s0.Get_channel_0_color_pco0()
+print('Channel 0 color of waveform "{}" is: "{}"'.format(s0.name, response))
+print()
+
+time.sleep(1)
+
+# modify the channel 0 color of waveform "s0" to "orange"
+# search for RGB565 Colors. Orange is "64480" at 65k colors
+print('Set channel 0 color of waveform "{}" to "{}"'.
+      format(s0.name, channel_0_color))
+s0.Set_channel_0_color_pco0(channel_0_color)
+print()
+
+time.sleep(1)
+
+# request the channel 0 color of waveform "s0" again
+print('Requesting channel 0 color of waveform "{}" ...'.format(s0.name))
+response = s0.Get_channel_0_color_pco0()
+print('Channel 0 color of waveform "{}" is: "{}"'.format(s0.name, response))
+print()
+
+# sanity check
+if response != channel_0_color:
+    print('WARNING: GET value did not match SET value')
+
+time.sleep(1)
+
+# ============================================================================
+# ========================= Grid dimenstion functions ========================
+# request the grid width of waveform "s0"
+print('Requesting grid width of waveform "{}" ...'.format(s0.name))
+response = s0.Get_grid_width_gdw()
+print('Grid width of waveform "{}" is: "{}"'.format(s0.name, response))
+print()
+
+time.sleep(1)
+
+# modify the grid width of waveform "s0"
+print('Set grid width of waveform "{}" to "{}"'.format(s0.name, grid_width))
+s0.Set_grid_width_gdw(grid_width)
+print()
+
+time.sleep(1)
+
+# request the grid width of waveform "s0" again
+print('Requesting grid width of waveform "{}" ...'.format(s0.name))
+response = s0.Get_grid_width_gdw()
+print('Grid width of waveform "{}" is: "{}"'.format(s0.name, response))
+print()
+
+# sanity check
+if response != grid_width:
+    print('WARNING: GET value did not match SET value')
+
+time.sleep(1)
+
+# request the grid height of waveform "s0"
+print('Requesting grid height of waveform "{}" ...'.format(s0.name))
+response = s0.Get_grid_height_gdh()
+print('Grid height of waveform "{}" is: "{}"'.format(s0.name, response))
+print()
+
+time.sleep(1)
+
+# modify the grid height of waveform "s0"
+print('Set grid height of waveform "{}" to "{}"'.format(s0.name, grid_height))
+s0.Set_grid_height_gdh(grid_height)
+print()
+
+time.sleep(1)
+
+# request the grid height of waveform "s0" again
+print('Requesting grid height of waveform "{}" ...'.format(s0.name))
+response = s0.Get_grid_height_gdh()
+print('Grid height of waveform "{}" is: "{}"'.format(s0.name, response))
+print()
+
+# sanity check
+if response != grid_height:
+    print('WARNING: GET value did not match SET value')
 
 # ============================================================================
 # ============================= End of example ===============================
