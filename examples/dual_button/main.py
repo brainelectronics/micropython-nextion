@@ -28,6 +28,8 @@ nh.nexInit()
 # create a dual state button instance
 bt0 = NexDSButton(nh, 0, 1, "bt0")
 
+# ============================================================================
+# ============================== Example values ==============================
 # new values for dual state button
 button_text = "btn txt"
 button_value = 1    # 1 is active (green), 0 is inactive (grey)
@@ -35,6 +37,8 @@ font_color_value = 31   # blue
 x_offset = 20
 y_offset = 20
 
+# ============================================================================
+# =========================== Text+Value functions ===========================
 # request the text of dual state button "bt0"
 print('Requesting dual state button "{}" text ...'.format(bt0.name))
 response_text = bt0.getText()
@@ -81,6 +85,8 @@ if response_value != button_value:
 
 time.sleep(1)
 
+# ============================================================================
+# ============================== Font functions ==============================
 # request the font color of dual state button "bt0"
 print('Requesting font color of dual state button "{}" ...'.format(bt0.name))
 response = bt0.Get_font_color_pco()
@@ -112,6 +118,8 @@ if response != font_color_value:
 
 time.sleep(1)
 
+# ============================================================================
+# ============================ Position functions ============================
 # request the x/y position of dual state button "bt0" again
 print('Requesting x/y position of dual state button "{}" ...'.format(bt0.name))
 x_position = bt0.Get_place_xcen()
@@ -130,6 +138,8 @@ bt0.Set_place_xcen(x_position)
 bt0.Set_place_ycen(y_position)
 print()
 
+# ============================================================================
+# ============================= End of example ===============================
 print('Returning to REPL in 5 seconds')
 
 # wait for 5 more seconds to safely finish the may still running threads
