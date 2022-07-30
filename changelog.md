@@ -20,6 +20,8 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 ## [0.11.0] - 2022-07-30
 ### Added
 - Support `NexUpload` usage with [`nextion_upload`](nextion/nextion_upload.py)
+- [Compiled example TFT file](examples/everything.tft) for
+  [upload example](examples/upload/main.py)
 
 ## [0.10.0] - 2022-07-30
 ### Added
