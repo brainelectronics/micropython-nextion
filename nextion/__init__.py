@@ -13,6 +13,7 @@ from .nextion_number import NexNumber
 from .nextion_page import NexPage
 from .nextion_progressbar import NexProgressBar
 from .nextion_radio import NexRadio
+from .nextion_rtc import NexRtc
 from .nextion_slider import NexSlider
 from .nextion_text import NexText
 from .nextion_upload import NexUpload
