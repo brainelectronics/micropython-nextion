@@ -32,3 +32,57 @@ class NexButton(Common, CommonBackgroundColorMixin, CommonFontMixin, CommonPosit
         :type       name:  str
         """
         super().__init__(nh, pid, cid, name)
+
+    def Get_press_background_color_bco2(self) -> int:
+        """
+        Get the pressed background color
+
+        :returns:   The pressed background color bco2
+        :rtype:     int
+        """
+        cmd = "get {}.bco2".format(self.name)
+        self._nh.sendCommand(cmd)
+        return self._nh.recvRetNumber()
+
+    def Set_press_background_color_bco2(self, number: int) -> bool:
+        """
+        Set the pressed background color
+
+        :param      number:  The background color number
+        :type       number:  int
+
+        :returns:   True on success, false otherwise
+        :rtype:     bool
+        """
+        cmd = "{}.bco2={}".format(self.name, number)
+        self._nh.sendCommand(cmd)
+        cmd = "ref {}".format(self.name)
+        self._nh.sendCommand(cmd)
+        return self._nh.recvRetCommandFinished()
+
+    def Get_press_font_color_pco2(self) -> int:
+        """
+        Get the pressed font color
+
+        :returns:   The pressed font color pco2
+        :rtype:     int
+        """
+        cmd = "get {}.pco2".format(self.name)
+        self._nh.sendCommand(cmd)
+        return self._nh.recvRetNumber()
+
+    def Set_press_font_color_pco2(self, number: int) -> bool:
+        """
+        Set the pressed font color
+
+        :param      number:  The font color number
+        :type       number:  int
+
+        :returns:   True on success, false otherwise
+        :rtype:     bool
+        """
+        cmd = "{}.pco2={}".format(self.name, number)
+        self._nh.sendCommand(cmd)
+        cmd = "ref {}".format(self.name)
+        self._nh.sendCommand(cmd)
+        return self._nh.recvRetCommandFinished()
