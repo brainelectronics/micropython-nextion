@@ -29,13 +29,23 @@ nh.nexInit()
 # create a number instance
 n0 = NexNumber(nh, 0, 1, "n0")
 
+# ============================================================================
+# ============================== Example values ==============================
 # new values of number field
 number_value = randint(1, 100)
 background_color_value = 63488  # red
 font_color_value = 31           # blue
 x_offset = 20
 y_offset = 20
+number_length = 2
+# numer = 300, length = 0 -> "300"
+#              length = 1 -> "3"
+#              length = 2 -> "30"
+#              length = 3 -> "300"
+#              length = 4 -> "0300"
 
+# ============================================================================
+# ============================== Value functions =============================
 # request the value of number "n0"
 print('Requesting number "{}" value ...'.format(n0.name))
 response = n0.getValue()
@@ -63,6 +73,8 @@ if response != number_value:
 
 time.sleep(1)
 
+# ============================================================================
+# =========================== Background functions ===========================
 # request the background color of number "n0"
 print('Requesting background color of number "{}" ...'.format(n0.name))
 response = n0.Get_background_color_bco()
@@ -92,6 +104,8 @@ if response != background_color_value:
 
 time.sleep(1)
 
+# ============================================================================
+# ============================== Font functions ==============================
 # request the font color of number "n0"
 print('Requesting font color of number "{}" ...'.format(n0.name))
 response = n0.Get_font_color_pco()
@@ -121,6 +135,8 @@ if response != font_color_value:
 
 time.sleep(1)
 
+# ============================================================================
+# ============================ Position functions ============================
 # request the x/y position of number "n0" again
 print('Requesting x/y position of number "{}" ...'.format(n0.name))
 x_position = n0.Get_place_xcen()
@@ -139,6 +155,38 @@ n0.Set_place_xcen(x_position)
 n0.Set_place_ycen(y_position)
 print()
 
+# ============================================================================
+# ============================ Special functions =============================
+# request the number length of number "n0"
+print('Requesting number length of number "{}" ...'.format(n0.name))
+response = n0.Get_number_length()
+print('Number length of number "{}" is: "{}"'.format(n0.name, response))
+print()
+
+time.sleep(1)
+
+# modify the number length of number "n0"
+print('Set number length of number "{}" to "{}"'.
+      format(n0.name, number_length))
+n0.Set_number_length(number_length)
+print()
+
+time.sleep(1)
+
+# request the number length of number "n0" again
+print('Requesting number length of number "{}" ...'.format(n0.name))
+response = n0.Get_number_length()
+print('Number length of number "{}" is: "{}"'.format(n0.name, response))
+print()
+
+# sanity check
+if response != number_length:
+    print('WARNING: GET value did not match SET value')
+
+time.sleep(1)
+
+# ============================================================================
+# ============================= End of example ===============================
 print('Returning to REPL in 5 seconds')
 
 # wait for 5 more seconds to safely finish the may still running threads

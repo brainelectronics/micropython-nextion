@@ -29,13 +29,20 @@ nh.nexInit()
 # create a slider instance
 h0 = NexSlider(nh, 0, 1, "h0")
 
+# ============================================================================
+# ============================== Example values ==============================
 # new values of slider
 # avoid something close to zero or close to 50
 slider_value = choice([randint(5, 40), randint(60, 100)])
 background_color_value = 63488  # red
 font_color_value = 31           # blue
 pointer_thickness = 5
+cursor_height = 5
+slider_max = 150
+slider_min = 10
 
+# ============================================================================
+# ============================== Value functions =============================
 # request the value of slider "h0"
 print('Requesting slider "{}" value ...'.format(h0.name))
 response = h0.getValue()
@@ -63,6 +70,8 @@ if response != slider_value:
 
 time.sleep(1)
 
+# ============================================================================
+# =========================== Background functions ===========================
 # request the background color of slider "h0"
 print('Requesting background color of slider "{}" ...'.format(h0.name))
 response = h0.Get_background_color_bco()
@@ -92,6 +101,8 @@ if response != background_color_value:
 
 time.sleep(1)
 
+# ============================================================================
+# ============================== Font functions ==============================
 # request the font color of slider "h0"
 print('Requesting font color of slider "{}" ...'.format(h0.name))
 response = h0.Get_font_color_pco()
@@ -121,6 +132,8 @@ if response != font_color_value:
 
 time.sleep(1)
 
+# ============================================================================
+# ============================ Pointer functions =============================
 # request the pointer thickness of slider "h0"
 print('Requesting pointer thickness of slider "{}" ...'.format(h0.name))
 response = h0.Get_pointer_thickness_wid()
@@ -147,6 +160,98 @@ print()
 if response != pointer_thickness:
     print('WARNING: GET value did not match SET value')
 
+time.sleep(1)
+
+# ============================================================================
+# ============================ Special functions =============================
+# ============================================================================
+# ============================= Cursor functions =============================
+# request the cursor height of slider "h0"
+print('Requesting cursor height of slider "{}" ...'.format(h0.name))
+response = h0.Get_cursor_height_hig()
+print('Cursor height of slider "{}" is: "{}"'.format(h0.name, response))
+print()
+
+time.sleep(1)
+
+# modify the cursor height of slider "h0"
+print('Set cursor height of slider "{}" to "{}"'.
+      format(h0.name, cursor_height))
+h0.Set_cursor_height_hig(cursor_height)
+print()
+
+time.sleep(1)
+
+# request the cursor height of slider "h0" again
+print('Requesting cursor height of slider "{}" ...'.format(h0.name))
+response = h0.Get_cursor_height_hig()
+print('Cursor height of slider "{}" is: "{}"'.format(h0.name, response))
+print()
+
+# sanity check
+if response != cursor_height:
+    print('WARNING: GET value did not match SET value')
+
+time.sleep(1)
+
+# ============================================================================
+# =========================== Value Limit functions ==========================
+# request the maximum value of slider "h0"
+print('Requesting maximum value of slider "{}" ...'.format(h0.name))
+response = h0.getMaxval()
+print('Maximum value of slider "{}" is: "{}"'.format(h0.name, response))
+print()
+
+time.sleep(1)
+
+# modify the maximum value of slider "h0"
+print('Set maximum value of slider "{}" to "{}"'.
+      format(h0.name, slider_max))
+h0.setMaxval(slider_max)
+print()
+
+time.sleep(1)
+
+# request the maximum value of slider "h0" again
+print('Requesting maximum value of slider "{}" ...'.format(h0.name))
+response = h0.getMaxval()
+print('cursor height of slider "{}" is: "{}"'.format(h0.name, response))
+print()
+
+# sanity check
+if response != slider_max:
+    print('WARNING: GET value did not match SET value')
+
+time.sleep(1)
+
+# request the minimum value of slider "h0"
+print('Requesting minimum value of slider "{}" ...'.format(h0.name))
+response = h0.getMinval()
+print('Minimum value of slider "{}" is: "{}"'.format(h0.name, response))
+print()
+
+time.sleep(1)
+
+# modify the minimum value of slider "h0"
+print('Set minimum value of slider "{}" to "{}"'.
+      format(h0.name, slider_min))
+h0.setMinval(slider_min)
+print()
+
+time.sleep(1)
+
+# request the minimum value of slider "h0" again
+print('Requesting minimum value of slider "{}" ...'.format(h0.name))
+response = h0.getMinval()
+print('cursor height of slider "{}" is: "{}"'.format(h0.name, response))
+print()
+
+# sanity check
+if response != slider_min:
+    print('WARNING: GET value did not match SET value')
+
+# ============================================================================
+# ============================= End of example ===============================
 print('Returning to REPL in 5 seconds')
 
 # wait for 5 more seconds to safely finish the may still running threads

@@ -17,6 +17,21 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 -->
 
 ## Released
+## [0.8.0] - 2022-07-30
+### Added
+- Support all class specific functions of
+    - Button
+    - Dual state button
+    - Number
+    - Slider
+    - Waveform
+
+### Changed
+- Add full line comment between different section of examples
+
+### Fixed
+- Flake8 warnings in several classes due to many imports and inheritance
+
 ## [0.7.1] - 2022-07-29
 ### Fixed
 - Add class `CommonPointerMixin` to [`common`](nextion/common.py)

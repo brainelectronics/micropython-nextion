@@ -28,7 +28,13 @@ class NexHardwareError(Exception):
 
 class NexHardware(object):
     """docstring for NexHardware"""
-    def __init__(self, rx_pin: int, tx_pin: int, baudrate: Optional[int] = 9600, timeout: Optional[int] = 100, invert: Optional[int] = 0, logger: Optional[logging.Logger] = None) -> None:
+    def __init__(self,
+                 rx_pin: int,
+                 tx_pin: int,
+                 baudrate: Optional[int] = 9600,
+                 timeout: Optional[int] = 100,
+                 invert: Optional[int] = 0,
+                 logger: Optional[logging.Logger] = None) -> None:
         """
         Init hardware interface
 
@@ -46,7 +52,8 @@ class NexHardware(object):
         :type       logger:    logging.Logger
         """
         if logger is None:
-            logger = NexHardware.create_logger(logger_name=self.__class__.__name__)
+            logger = NexHardware.create_logger(
+                logger_name=self.__class__.__name__)
             logger.setLevel(level=logging.WARNING)
         self._logger = logger
         self._logger.disabled = False

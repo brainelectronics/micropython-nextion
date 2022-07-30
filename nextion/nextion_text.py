@@ -8,7 +8,8 @@ Functions to interact with a Nextion Text element
 """
 
 # custom packages
-from .common import Common, CommonBackgroundColorMixin, CommonFontMixin, CommonPositionMixin, CommonTextMixin
+from .common import Common, CommonBackgroundColorMixin, CommonFontMixin, \
+    CommonPositionMixin, CommonTextMixin
 
 
 class NexTextError(Exception):
@@ -16,7 +17,8 @@ class NexTextError(Exception):
     pass
 
 
-class NexText(Common, CommonBackgroundColorMixin, CommonFontMixin, CommonPositionMixin, CommonTextMixin):
+class NexText(Common, CommonBackgroundColorMixin, CommonFontMixin,
+              CommonPositionMixin, CommonTextMixin):
     """docstring for NexText"""
     def __init__(self, nh, pid: int, cid: int, name: str) -> None:
         """
