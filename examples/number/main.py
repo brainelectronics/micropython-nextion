@@ -37,6 +37,12 @@ background_color_value = 63488  # red
 font_color_value = 31           # blue
 x_offset = 20
 y_offset = 20
+number_length = 2
+# numer = 300, length = 0 -> "300"
+#              length = 1 -> "3"
+#              length = 2 -> "30"
+#              length = 3 -> "300"
+#              length = 4 -> "0300"
 
 # ============================================================================
 # ============================== Value functions =============================
@@ -148,6 +154,36 @@ print('Set x/y position of number "{}" to "x={}", "y={}"'.
 n0.Set_place_xcen(x_position)
 n0.Set_place_ycen(y_position)
 print()
+
+# ============================================================================
+# ============================ Special functions =============================
+# request the number length of number "n0"
+print('Requesting number length of number "{}" ...'.format(n0.name))
+response = n0.Get_number_length()
+print('Number length of number "{}" is: "{}"'.format(n0.name, response))
+print()
+
+time.sleep(1)
+
+# modify the number length of number "n0"
+print('Set number length of number "{}" to "{}"'.
+      format(n0.name, number_length))
+n0.Set_number_length(number_length)
+print()
+
+time.sleep(1)
+
+# request the number length of number "n0" again
+print('Requesting number length of number "{}" ...'.format(n0.name))
+response = n0.Get_number_length()
+print('Number length of number "{}" is: "{}"'.format(n0.name, response))
+print()
+
+# sanity check
+if response != number_length:
+    print('WARNING: GET value did not match SET value')
+
+time.sleep(1)
 
 # ============================================================================
 # ============================= End of example ===============================
