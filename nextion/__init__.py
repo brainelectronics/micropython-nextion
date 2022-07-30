@@ -8,6 +8,7 @@ from .nextion_button import NexButton
 from .nextion_checkbox import NexCheckbox
 from .nextion_dual_state_button import NexDSButton
 from .nextion_gauge import NexGauge
+from .nextion_gpio import NexGpio
 from .nextion_number import NexNumber
 from .nextion_page import NexPage
 from .nextion_progressbar import NexProgressBar
