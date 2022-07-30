@@ -74,7 +74,9 @@ jobs:
     - name: Archive build package artifact
       uses: actions/upload-artifact@v3
       with:
-        name: ${{ env.GITHUB_REPOSITORY }}_dist_branch.${{ env.GITHUB_REF_NAME }}_sha.${{ env.GITHUB_SHA }}_build.${{ env.GITHUB_RUN_ID }}
+        # https://docs.github.com/en/actions/learn-github-actions/contexts#github-context
+        # ${{ github.repository }} and ${{ github.ref_name }} can't be used for artifact name due to unallowed '/'
+        name: dist_repo.${{ github.event.repository.name }}_sha.${{ github.sha }}_build.${{ github.run_number }}
         # _py.${{ matrix.python-version }}
         path: dist/*.tar.gz
         retention-days: 14
