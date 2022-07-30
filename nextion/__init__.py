@@ -15,5 +15,6 @@ from .nextion_progressbar import NexProgressBar
 from .nextion_radio import NexRadio
 from .nextion_slider import NexSlider
 from .nextion_text import NexText
+from .nextion_upload import NexUpload
 from .nextion_variable import NexVariable
 from .nextion_waveform import NexWaveform
