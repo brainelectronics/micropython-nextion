@@ -1,0 +1,82 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Test Python package
+
+on:
+  push:
+    # branches: [ $default-branch ]
+    branches-ignore:
+      - 'main'
+      - 'develop'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    # strategy:
+    #   fail-fast: false
+    #   matrix:
+    #     python-version: ["3.8", "3.9", "3.10"]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        # python-version: ${{ matrix.python-version }}
+        python-version: '3.9'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install flake8
+    - name: Lint with flake8
+      run: |
+        # remove old reports folder and create new one
+        rm -rf reports
+        mkdir -p reports/sca
+        mkdir -p reports/test_results
+        mkdir -p reports/coverage
+        flake8 . --output-file=reports/sca/flake8.out --exit-zero
+    # - name: Test with pytest
+    #   run: |
+    #     python -m pip install pytest
+    #     pytest
+    # - name: Test with nose2
+    #   run: |
+    #     python -m pip install nose2
+    #     nose2 --config tests/unittest.cfg
+    #     coverage xml
+    #     coverage html
+    # - name: Upload pytest test results
+    #   uses: actions/upload-artifact@v3
+    #   with:
+    #     name: pytest-results-${{ matrix.python-version }}
+    #     path: junit/test-results-${{ matrix.python-version }}.xml
+    #   # Use always() to always run this step to publish test results when there are test failures
+    #   if: ${{ always() }}
+    - name: Install deploy dependencies
+      run: |
+        if [ -f requirements-deploy.txt ]; then pip install -r requirements-deploy.txt; fi
+    - name: Build package
+      run: |
+        python update_version.py \
+          --changelog_file changelog.md \
+          --version_file nextion/version.py \
+          --debug
+        python setup.py sdist
+    - name: Test build package
+      run: |
+        twine check dist/*.tar.gz
+    - name: Archive build package artifact
+      uses: actions/upload-artifact@v3
+      with:
+        # https://docs.github.com/en/actions/learn-github-actions/contexts#github-context
+        # ${{ github.repository }} and ${{ github.ref_name }} can't be used for artifact name due to unallowed '/'
+        name: dist_repo.${{ github.event.repository.name }}_sha.${{ github.sha }}_build.${{ github.run_number }}
+        # _py.${{ matrix.python-version }}
+        path: dist/*.tar.gz
+        retention-days: 14
