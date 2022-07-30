@@ -11,7 +11,8 @@ Functions to interact with a Nextion Number element
 from time import sleep
 
 # custom packages
-from .common import Common, CommonBackgroundColorMixin, CommonFontMixin, CommonPositionMixin, CommonValueMixin
+from .common import Common, CommonBackgroundColorMixin, CommonFontMixin, \
+    CommonPositionMixin, CommonValueMixin
 
 
 class NexNumberError(Exception):
@@ -19,7 +20,8 @@ class NexNumberError(Exception):
     pass
 
 
-class NexNumber(Common, CommonBackgroundColorMixin, CommonFontMixin, CommonPositionMixin, CommonValueMixin):
+class NexNumber(Common, CommonBackgroundColorMixin, CommonFontMixin,
+                CommonPositionMixin, CommonValueMixin):
     """docstring for NexNumber"""
     def __init__(self, nh, pid: int, cid: int, name: str) -> None:
         """
