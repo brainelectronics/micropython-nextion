@@ -33,7 +33,9 @@ bt0 = NexDSButton(nh, 0, 1, "bt0")
 # new values for dual state button
 button_text = "btn txt"
 button_value = 1    # 1 is active (green), 0 is inactive (grey)
+background_color_value = 63488  # red
 font_color_value = 31   # blue
+pressed_background_color_value = 64480  # orange
 x_offset = 20
 y_offset = 20
 
@@ -59,7 +61,8 @@ bt0.setText(button_text)
 print()
 
 # modify dual state button "bt0" being released by default
-print('Set dual state button "{}" state to "{}"'.format(bt0.name, button_value))
+print('Set dual state button "{}" state to "{}"'.
+      format(bt0.name, button_value))
 bt0.setValue(button_value)
 print()
 
@@ -82,6 +85,41 @@ if response_text != button_text:
     print('WARNING: GET text value did not match SET text value')
 if response_value != button_value:
     print('WARNING: GET state value did not match SET state value')
+
+time.sleep(1)
+
+# ============================================================================
+# =========================== Background functions ===========================
+# request the background color of dual state button "bt0"
+print('Requesting background color of dual state button "{}" ...'.
+      format(bt0.name))
+response = bt0.Get_state0_color_bco0()
+print('Background color of dual state button "{}" is: "{}"'.
+      format(bt0.name, response))
+print()
+
+time.sleep(1)
+
+# modify the background color of dual state button "bt0" to "red"
+# search for RGB565 Colors. Red is "63488" at 65k colors
+print('Set background color of dual state button "{}" to "{}"'.
+      format(bt0.name, background_color_value))
+bt0.Set_state0_color_bco0(background_color_value)
+print()
+
+time.sleep(1)
+
+# request the background color of dual state button "bt0" again
+print('Requesting background color of dual state button "{}" ...'.
+      format(bt0.name))
+response = bt0.Get_state0_color_bco0()
+print('Background color of dual state button "{}" is: "{}"'.
+      format(bt0.name, response))
+print()
+
+# sanity check
+if response != background_color_value:
+    print('WARNING: GET value did not match SET value')
 
 time.sleep(1)
 
@@ -137,6 +175,41 @@ print('Set x/y position of dual state button "{}" to "x={}", "y={}"'.
 bt0.Set_place_xcen(x_position)
 bt0.Set_place_ycen(y_position)
 print()
+
+time.sleep(1)
+
+# ============================================================================
+# ============================ Special functions =============================
+# request the pressed background color of dual state button "bt0"
+print('Requesting pressed background color of dual state button "{}" ...'.
+      format(bt0.name))
+response = bt0.Get_state1_color_bco1()
+print('Pressed background color of dual state button "{}" is: "{}"'.
+      format(bt0.name, response))
+print()
+
+time.sleep(1)
+
+# modify the pressed background color of dual state button "bt0" to "red"
+# search for RGB565 Colors. Red is "63488" at 65k colors
+print('Set pressed background color of dual state button "{}" to "{}"'.
+      format(bt0.name, pressed_background_color_value))
+bt0.Set_state1_color_bco1(pressed_background_color_value)
+print()
+
+time.sleep(1)
+
+# request the pressed background color of dual state button "bt0" again
+print('Requesting pressed background color of dual state button "{}" ...'.
+      format(bt0.name))
+response = bt0.Get_state0_color_bco0()
+print('Pressed background color of dual state button "{}" is: "{}"'.
+      format(bt0.name, response))
+print()
+
+# sanity check
+if response != pressed_background_color_value:
+    print('WARNING: GET value did not match SET value')
 
 # ============================================================================
 # ============================= End of example ===============================
