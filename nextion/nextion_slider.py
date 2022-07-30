@@ -11,7 +11,8 @@ Functions to interact with a Nextion Slider element
 from time import sleep
 
 # custom packages
-from .common import Common, CommonBackgroundColorMixin, CommonFontMixin, CommonPointerMixin, CommonValueMixin
+from .common import Common, CommonBackgroundColorMixin, CommonFontMixin, \
+    CommonPointerMixin, CommonValueMixin
 
 
 class NexSliderError(Exception):
@@ -19,7 +20,8 @@ class NexSliderError(Exception):
     pass
 
 
-class NexSlider(Common, CommonBackgroundColorMixin, CommonFontMixin, CommonPointerMixin, CommonValueMixin):
+class NexSlider(Common, CommonBackgroundColorMixin, CommonFontMixin,
+                CommonPointerMixin, CommonValueMixin):
     """docstring for NexSlider"""
     def __init__(self, nh, pid: int, cid: int, name: str) -> None:
         """
