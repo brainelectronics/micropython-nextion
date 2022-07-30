@@ -36,3 +36,21 @@ elements by simple UART command calls.
 
 The [hardware example](hardware/main.py) shows the usage of the hardware
 functions `sleep`, `brightness` and `reset`.
+
+## Upload example
+
+The [upload example](upload/main.py) shows how to update a Nextion display
+with a new TFT file.
+
+Copy the [example TFT file](everything.tft) to the MicroPython board with
+e.g. `rshell`
+
+```bash
+rshell --port /dev/tty.SLAB_USBtoUART --editor nano
+```
+
+Copy the file to the device, this might take several minutes!
+
+```bash
+cp everything.tft /pyboard
+```
