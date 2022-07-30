@@ -30,6 +30,8 @@ page0 = NexPage(nh, 0, 0, "page0")
 page1 = NexPage(nh, 1, 0, "page1")
 page2 = NexPage(nh, 2, 0, "page2")
 
+# ============================================================================
+# ============================== Page functions ==============================
 # show the default page 0
 print('Showing page "{}" ...'.format(page0.name))
 page0.show()
@@ -56,6 +58,8 @@ print('Showing page "{}" ...'.format(page0.name))
 page0.show()
 print()
 
+# ============================================================================
+# ============================= End of example ===============================
 print('Returning to REPL in 5 seconds')
 
 # wait for 5 more seconds to safely finish the may still running threads

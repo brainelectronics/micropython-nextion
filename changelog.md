@@ -17,6 +17,14 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 -->
 
 ## Released
+## [0.10.0] - 2022-07-30
+### Added
+- Support `NexVariable` usage with
+  [`nextion_variable`](nextion/nextion_variable.py)
+
+### Fixed
+- Add full line comment between different section of all examples
+
 ## [0.9.0] - 2022-07-30
 ### Added
 - Support GPIO usage with [`nextion_gpio`](nextion/nextion_gpio.py)
@@ -142,8 +150,9 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 - [Example HMI file](examples/everything.HMI) to be used for all examples
 
 <!-- Links -->
-[Unreleased]: https://github.com/brainelectronics/micropython-nextion/compare/0.9.0...develop
+[Unreleased]: https://github.com/brainelectronics/micropython-nextion/compare/0.10.0...develop
 
+[0.10.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.10.0
 [0.9.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.9.0
 [0.8.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.8.0
 [0.7.1]: https://github.com/brainelectronics/micropython-nextion/tree/0.7.1
