@@ -7,7 +7,7 @@
 | [Crop](crop)              | NexCrop       | :x: 				 |
 | [DualButton](dual_button) | NexDual       | :heavy_check_mark: |
 | [Gauge](gauge)            | NexGauge      | :heavy_check_mark: |
-| [Gpio](gpio)              | NexGpio       | :x: 				 |
+| [Gpio](gpio)              | NexGpio       | :heavy_check_mark: |
 | [Hardware](hardware)      | NexHardware   | :heavy_check_mark: |
 | [Hotspot](hotspot)        | NexHotspot    | :x: 				 |
 | [Number](number)          | NexNumber     | :heavy_check_mark: |
