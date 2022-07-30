@@ -28,11 +28,15 @@ nh.nexInit()
 # create a checkbox instance
 c0 = NexCheckbox(nh, 0, 1, "c0")
 
+# ============================================================================
+# ============================== Example values ==============================
 # new values of checkbox
 checkbox_value = 0
 background_color_value = 63488  # red
 font_color_value = 31           # blue
 
+# ============================================================================
+# ============================== Value functions =============================
 # request the value of checkbox "c0"
 print('Requesting checkbox "{}" value ...'.format(c0.name))
 response = c0.getValue()
@@ -60,6 +64,8 @@ if response != checkbox_value:
 
 time.sleep(1)
 
+# ============================================================================
+# =========================== Background functions ===========================
 # request the background color of checkbox "c0"
 print('Requesting background color of checkbox "{}" ...'.format(c0.name))
 response = c0.Get_background_color_bco()
@@ -89,6 +95,8 @@ if response != background_color_value:
 
 time.sleep(1)
 
+# ============================================================================
+# ============================== Font functions ==============================
 # request the font color of checkbox "c0"
 print('Requesting font color of checkbox "{}" ...'.format(c0.name))
 response = c0.Get_font_color_pco()
@@ -119,8 +127,8 @@ print()
 if response != font_color_value:
     print('WARNING: GET value did not match SET value')
 
-time.sleep(1)
-
+# ============================================================================
+# ============================= End of example ===============================
 print('Returning to REPL in 5 seconds')
 
 # wait for 5 more seconds to safely finish the may still running threads

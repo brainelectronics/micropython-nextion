@@ -26,6 +26,8 @@ nh = NexHardware(rx_pin=rx_pin, tx_pin=tx_pin)
 # init nextion communication interface
 nh.nexInit()
 
+# ============================================================================
+# ============================ Brightness function ===========================
 # decrease display brightness to 50%
 display_brightness = 50
 print('Decreasing display brightness to {}%...'.format(display_brightness))
@@ -34,6 +36,8 @@ print()
 
 time.sleep(1)
 
+# ============================================================================
+# ============================== Sleep function ==============================
 # activate sleep mode of display
 print('Activating display sleep mode for 5 seconds')
 nh.sleep(True)
@@ -43,6 +47,8 @@ nh.sleep(False)
 
 time.sleep(1)
 
+# ============================================================================
+# ============================ Hide/show function ============================
 # manipulate display content to demonstrate display reset afterwards
 print('Manipulating display content a little bit ...')
 b0 = NexButton(nh, 0, 1, "b0")
@@ -71,6 +77,8 @@ print('Showing button "{}" again ...'.format(b0.name))
 b0.show()
 print()
 
+# ============================================================================
+# ============================= End of example ===============================
 print('Returning to REPL in 5 seconds')
 
 # wait for 5 more seconds to safely finish the may still running threads

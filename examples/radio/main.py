@@ -28,11 +28,15 @@ nh.nexInit()
 # create a radio instance
 r0 = NexRadio(nh, 0, 1, "r0")
 
+# ============================================================================
+# ============================== Example values ==============================
 # new values of radio
 radio_state = 0
 background_color_value = 63488  # red
 font_color_value = 31           # blue
 
+# ============================================================================
+# ============================== Value functions =============================
 # request the state of radio "r0"
 print('Requesting radio "{}" value ...'.format(r0.name))
 response = r0.getValue()
@@ -60,6 +64,8 @@ if response != radio_state:
 
 time.sleep(1)
 
+# ============================================================================
+# =========================== Background functions ===========================
 # request the background color of radio "r0"
 print('Requesting background color of radio "{}" ...'.format(r0.name))
 response = r0.Get_background_color_bco()
@@ -89,6 +95,8 @@ if response != background_color_value:
 
 time.sleep(1)
 
+# ============================================================================
+# ============================== Font functions ==============================
 # request the font color of radio "r0"
 print('Requesting font color of radio "{}" ...'.format(r0.name))
 response = r0.Get_font_color_pco()
@@ -119,6 +127,8 @@ print()
 if response != font_color_value:
     print('WARNING: GET value did not match SET value')
 
+# ============================================================================
+# ============================= End of example ===============================
 print('Returning to REPL in 5 seconds')
 
 # wait for 5 more seconds to safely finish the may still running threads

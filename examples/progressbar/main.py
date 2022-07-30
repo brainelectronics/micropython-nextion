@@ -29,12 +29,16 @@ nh.nexInit()
 # create a progressbar instance
 j0 = NexProgressBar(nh, 0, 1, "j0")
 
+# ============================================================================
+# ============================== Example values ==============================
 # new values of progressbar
 # avoid something close to zero or close to 50
 progressbar_value = choice([randint(5, 40), randint(60, 100)])
 background_color_value = 63488  # red
 font_color_value = 31           # blue
 
+# ============================================================================
+# ============================== Value functions =============================
 # request the value of progressbar "j0" being 50 by default
 print('Requesting progressbar "{}" value ...'.format(j0.name))
 response = j0.getValue()
@@ -62,6 +66,8 @@ if response != progressbar_value:
 
 time.sleep(1)
 
+# ============================================================================
+# =========================== Background functions ===========================
 # request the background color of progressbar "j0"
 print('Requesting background color of progressbar "{}" ...'.format(j0.name))
 response = j0.Get_background_color_bco()
@@ -93,6 +99,8 @@ if response != background_color_value:
 
 time.sleep(1)
 
+# ============================================================================
+# ============================== Font functions ==============================
 # request the font color of progressbar "j0"
 print('Requesting font color of progressbar "{}" ...'.format(j0.name))
 response = j0.Get_font_color_pco()
@@ -120,6 +128,8 @@ print()
 if response != font_color_value:
     print('WARNING: GET value did not match SET value')
 
+# ============================================================================
+# ============================= End of example ===============================
 print('Returning to REPL in 5 seconds')
 
 # wait for 5 more seconds to safely finish the may still running threads
