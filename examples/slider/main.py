@@ -29,6 +29,8 @@ nh.nexInit()
 # create a slider instance
 h0 = NexSlider(nh, 0, 1, "h0")
 
+# ============================================================================
+# ============================== Example values ==============================
 # new values of slider
 # avoid something close to zero or close to 50
 slider_value = choice([randint(5, 40), randint(60, 100)])
@@ -36,6 +38,8 @@ background_color_value = 63488  # red
 font_color_value = 31           # blue
 pointer_thickness = 5
 
+# ============================================================================
+# ============================== Value functions =============================
 # request the value of slider "h0"
 print('Requesting slider "{}" value ...'.format(h0.name))
 response = h0.getValue()
@@ -63,6 +67,8 @@ if response != slider_value:
 
 time.sleep(1)
 
+# ============================================================================
+# =========================== Background functions ===========================
 # request the background color of slider "h0"
 print('Requesting background color of slider "{}" ...'.format(h0.name))
 response = h0.Get_background_color_bco()
@@ -92,6 +98,8 @@ if response != background_color_value:
 
 time.sleep(1)
 
+# ============================================================================
+# ============================== Font functions ==============================
 # request the font color of slider "h0"
 print('Requesting font color of slider "{}" ...'.format(h0.name))
 response = h0.Get_font_color_pco()
@@ -121,6 +129,8 @@ if response != font_color_value:
 
 time.sleep(1)
 
+# ============================================================================
+# ============================ Pointer functions =============================
 # request the pointer thickness of slider "h0"
 print('Requesting pointer thickness of slider "{}" ...'.format(h0.name))
 response = h0.Get_pointer_thickness_wid()
@@ -147,6 +157,8 @@ print()
 if response != pointer_thickness:
     print('WARNING: GET value did not match SET value')
 
+# ============================================================================
+# ============================= End of example ===============================
 print('Returning to REPL in 5 seconds')
 
 # wait for 5 more seconds to safely finish the may still running threads
