@@ -15,7 +15,7 @@
 | [Picture](picture)        | NexPicture    | :x: 				 |
 | [Progress](progress)      | NexProgress   | :heavy_check_mark: |
 | [Radio](radio)            | NexRadio      | :heavy_check_mark: |
-| [Rtc](rtc)                | NexRtc        | :x: 				 |
+| [Rtc](rtc)                | NexRtc        | :heavy_check_mark: |
 | [Scrolltext](scrolltext)  | NexScrolltext | :x: 				 |
 | [Slider](slider)          | NexSlider     | :heavy_check_mark: |
 | [Text](text)              | NexText       | :heavy_check_mark: |
