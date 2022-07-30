@@ -21,8 +21,8 @@
 | [Text](text)              | NexText       | :heavy_check_mark: |
 | [Timer](timer)            | NexTimer      | :x: 				 |
 | [Touch](touch)            | NexTouch      | :x: 				 |
-| [Upload](upload)          | NexUpload     | :x: 				 |
-| [Variable](variable)      | NexVariable 	| :x: 				 |
+| [Upload](upload)          | NexUpload     | :heavy_check_mark: |
+| [Variable](variable)      | NexVariable 	| :heavy_check_mark: |
 | [waveform](waveform)      | NexWaveform 	| :heavy_check_mark: |
 
 <!-- https://www.webfx.com/tools/emoji-cheat-sheet/ -->
