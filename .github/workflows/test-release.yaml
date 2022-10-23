@@ -29,6 +29,11 @@ jobs:
           --version_file_type py \
           --additional_version_info="-rc${{ github.run_number }}.dev${{ github.event.number }}" \
           --debug
+        # micropython-nextion is owned by someone else on test.pypi.org
+        # rename package only for this case
+        sed -i \
+          "s/name\='micropython-nextion'/name\='be-micropython-nextion'/" \
+          setup.py
         python setup.py sdist
     - name: Test built package
       # sdist call creates non twine conform "*.orig" files, remove them

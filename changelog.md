@@ -20,7 +20,9 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 ## [0.13.0] - 2022-10-23
 ### Added
 - `changelog2version` to [requirements file](requirements-deploy.txt)
-- [GitHub CI test release workflow](.github/workflows/test-release.yml)
+- [GitHub CI test release workflow](.github/workflows/test-release.yml) to
+  deploy package as `be-micropython-nextion` to
+  [Test Python Package Index](https://test.pypi.org/) on every PR
 - [Quickstart guide](QUICKSTART.md)
 
 ### Changed
