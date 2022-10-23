@@ -25,9 +25,9 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 
 ### Changed
 - Use [`changelog2version`][ref-changelog2version-package] to create package
-  version file in:
+  version file, see [#19][ref-issue-19], in:
     - [GitHub CI test workflow](.github/workflows/test.yml)
-    - [GitHub CI publish workflow](.github/workflows/release.yml)
+    - [GitHub CI release workflow](.github/workflows/release.yml)
 
 ### Removed
 - Script `update_version.py` to update version file
@@ -206,5 +206,6 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 [0.1.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.1.0
 
 [ref-issue-17]: https://github.com/brainelectronics/micropython-nextion/issues/17
+[ref-issue-19]: https://github.com/brainelectronics/micropython-nextion/issues/19
 
 [ref-changelog2version-package]: https://pypi.org/project/changelog2version/
