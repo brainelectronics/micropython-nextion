@@ -198,7 +198,7 @@ class NexHardware(object):
 
         if ((temp[0] == Const.NEX_RET_NUMBER_HEAD) and
                 (temp[5] == 0xFF) and (temp[6] == 0xFF) and (temp[7] == 0xFF)):
-            number = (temp[4] << 24) | (temp[3] << 16) | (temp[2] << 8) | (temp[1])
+            number = (temp[4] << 24) | (temp[3] << 16) | (temp[2] << 8) | (temp[1])  # noqa
             # ret = True
 
         # if ret:

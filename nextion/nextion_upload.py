@@ -112,7 +112,7 @@ class NexUpload(Common):
         if not self._downloadTftFile():
             raise NexUploadError("Download file error")
 
-        self._nh._logger.debug("Download ok")
+        self._logger.debug("Download ok")
         return True
 
     def _checkFile(self) -> bool:
@@ -127,13 +127,13 @@ class NexUpload(Common):
             # https://docs.python.org/3/library/os.html#os.stat
             info = stat(self.file_name)
             self.file_size = info[6]
-            self._nh._logger.debug("TFT file size is '{}' bytes".
-                                   format(self.file_size))
-            self._nh._logger.debug("File check ok")
+            self._logger.debug("TFT file size is '{}' bytes".
+                               format(self.file_size))
+            self._logger.debug("File check ok")
             result = True
         else:
-            self._nh._logger.debug("File '{}' does not exist".
-                                   format(self.file_name))
+            self._logger.debug("File '{}' does not exist".
+                               format(self.file_name))
         return result
 
     def _getBaudrate(self) -> int:
@@ -147,13 +147,13 @@ class NexUpload(Common):
         _baudrate = 0
 
         for baudrate in baudrate_array:
-            self._nh._logger.debug("Checking connection with '{}' baud".
-                                   format(baudrate))
+            self._logger.debug("Checking connection with '{}' baud".
+                               format(baudrate))
 
             if self._searchBaudrate(baudrate):
                 _baudrate = baudrate
-                self._nh._logger.debug("Success, baudrate set to '{}' baud".
-                                       format(_baudrate))
+                self._logger.debug("Success, baudrate set to '{}' baud".
+                                   format(_baudrate))
                 return _baudrate
 
         return _baudrate
@@ -174,8 +174,8 @@ class NexUpload(Common):
         self._nh.sendCommand("connect")
         sleep(0.1)  # necessary, data might not be available otherwise
         response = self._recvRetString()
-        self._nh._logger.debug("_searchBaudrate response for '{}' baud: {}".
-                               format(baudrate, response))
+        self._logger.debug("_searchBaudrate response for '{}' baud: {}".
+                           format(baudrate, response))
 
         if "comok" in response:
             return True
@@ -193,7 +193,7 @@ class NexUpload(Common):
         :rtype:     bool
         """
         cmd = "whmi-wri {},{},0".format(self.file_size, baudrate)
-        self._nh._logger.debug("Set download baudrate cmd: '{}'".format(cmd))
+        self._logger.debug("Set download baudrate cmd: '{}'".format(cmd))
 
         self._nh.sendCommand("")
         self._nh.sendCommand(cmd)
@@ -201,8 +201,8 @@ class NexUpload(Common):
         self._nh._baudrate = baudrate
         self._nh._uart_init()
         response = self._recvRetString(500)
-        self._nh._logger.debug("Set download baudrate response: '{}'".
-                               format(response))
+        self._logger.debug("Set download baudrate response: '{}'".
+                           format(response))
         if (0x05).to_bytes(1, 'little') in response:
             return True
         return False
@@ -222,13 +222,13 @@ class NexUpload(Common):
                 data_size = update_file.readinto(file_content)
 
                 if not data_size:
-                    self._nh._logger.debug("Reached EOF, update finished")
+                    self._logger.debug("Reached EOF, update finished")
                     break
 
                 self._nh._uart.write(file_content)
 
                 response = self._recvRetString(500)
-                # self._nh._logger.debug("File download response: '{}'".
+                # self._logger.debug("File download response: '{}'".
                 #                        format(response))
 
                 if (0x05).to_bytes(1, 'little') in response:

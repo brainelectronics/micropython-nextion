@@ -13,24 +13,24 @@ permissions:
 
 jobs:
   deploy:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v3
     - name: Set up Python
       uses: actions/setup-python@v3
       with:
         python-version: '3.9'
-    - name: Install dependencies
+    - name: Install build dependencies
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements-deploy.txt ]; then pip install -r requirements-deploy.txt; fi
     - name: Build package
       run: |
-        python update_version.py \
+        changelog2version \
           --changelog_file changelog.md \
           --version_file nextion/version.py \
+          --version_file_type py \
           --debug
         python setup.py sdist
     - name: Publish package

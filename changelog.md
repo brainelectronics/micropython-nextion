@@ -17,6 +17,32 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 -->
 
 ## Released
+## [0.13.0] - 2022-10-23
+### Added
+- `changelog2version` to [requirements file](requirements-deploy.txt)
+- [GitHub CI test release workflow](.github/workflows/test-release.yml) to
+  deploy package as `be-micropython-nextion` to
+  [Test Python Package Index](https://test.pypi.org/) on every PR
+- [Quickstart guide](QUICKSTART.md)
+
+### Changed
+- Use [`changelog2version`][ref-changelog2version-package] to create package
+  version file, see [#19][ref-issue-19], in:
+    - [GitHub CI test workflow](.github/workflows/test.yml)
+    - [GitHub CI release workflow](.github/workflows/release.yml)
+
+### Removed
+- Script `update_version.py` to update version file
+
+### Fixed
+- Flake8 warning in [`nextion_waveform`](nextion/nextion_waveform.py) and
+  [`nextion_hardware`](nextion/nextion_hardware.py), see [#17][ref-issue-17]
+- Use `self._logger.*` instead of `self._nh._logger.*` in:
+    - [`nextion_rtc`](nextion/nextion_rtc.py)
+    - [`nextion_upload`](nextion/nextion_upload.py)
+- Path of `main.py` to copy manually to the MicroPython board described in
+  [`README`](README.md)
+
 ## [0.12.0] - 2022-07-30
 ### Added
 - Support `NexRtc` usage with [`nextion_rtc`](nextion/nextion_rtc.py)
@@ -164,8 +190,9 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 - [Example HMI file](examples/everything.HMI) to be used for all examples
 
 <!-- Links -->
-[Unreleased]: https://github.com/brainelectronics/micropython-nextion/compare/0.12.0...develop
+[Unreleased]: https://github.com/brainelectronics/micropython-nextion/compare/0.13.0...develop
 
+[0.13.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.13.0
 [0.12.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.12.0
 [0.11.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.11.0
 [0.10.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.10.0
@@ -180,6 +207,7 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 [0.2.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.2.0
 [0.1.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.1.0
 
-<!--
-[ref-issue-1]: https://github.com/brainelectronics/micropython-nextion/issues/1
--->
+[ref-issue-17]: https://github.com/brainelectronics/micropython-nextion/issues/17
+[ref-issue-19]: https://github.com/brainelectronics/micropython-nextion/issues/19
+
+[ref-changelog2version-package]: https://pypi.org/project/changelog2version/

@@ -15,19 +15,13 @@ permissions:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    # strategy:
-    #   fail-fast: false
-    #   matrix:
-    #     python-version: ["3.8", "3.9", "3.10"]
-
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v3
     - name: Set up Python
       uses: actions/setup-python@v3
       with:
-        # python-version: ${{ matrix.python-version }}
         python-version: '3.9'
     - name: Install dependencies
       run: |
@@ -63,20 +57,13 @@ jobs:
         if [ -f requirements-deploy.txt ]; then pip install -r requirements-deploy.txt; fi
     - name: Build package
       run: |
-        python update_version.py \
+        changelog2version \
           --changelog_file changelog.md \
           --version_file nextion/version.py \
+          --version_file_type py \
           --debug
         python setup.py sdist
+        rm dist/*.orig
     - name: Test build package
       run: |
-        twine check dist/*.tar.gz
-    - name: Archive build package artifact
-      uses: actions/upload-artifact@v3
-      with:
-        # https://docs.github.com/en/actions/learn-github-actions/contexts#github-context
-        # ${{ github.repository }} and ${{ github.ref_name }} can't be used for artifact name due to unallowed '/'
-        name: dist_repo.${{ github.event.repository.name }}_sha.${{ github.sha }}_build.${{ github.run_number }}
-        # _py.${{ matrix.python-version }}
-        path: dist/*.tar.gz
-        retention-days: 14
+        twine check dist/*
