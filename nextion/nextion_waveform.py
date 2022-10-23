@@ -67,7 +67,8 @@ class NexWaveform(Common, CommonBackgroundColorMixin, CommonFontMixin):
         :rtype:     bool
         """
         if (ch > 3) and (ch != 255):
-            self._logger.debug("Only channel (0-3) or all (255) can be cleared")
+            self._logger.debug("Only the channels (0-3) or all channels at "
+                               "once (255) can be cleared")
             return False
 
         cmd = "cle {},{}".format(self.cid, ch)
