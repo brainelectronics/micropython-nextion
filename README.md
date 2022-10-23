@@ -70,7 +70,8 @@ in case no CP210x is used but a CH34x.
 rshell --port /dev/tty.SLAB_USBtoUART --editor nano
 ```
 
-Perform the following command to copy all files and folders to the device
+Perform the following command inside the `rshell` to copy all files and
+folders to the device
 
 ```bash
 mkdir /pyboard/lib
@@ -78,7 +79,7 @@ mkdir /pyboard/lib/nextion
 
 cp nextion/* /pyboard/lib/nextion
 
-cp examples/main.py /pyboard
+cp examples/basic/main.py /pyboard
 cp examples/boot.py /pyboard
 ```
 
