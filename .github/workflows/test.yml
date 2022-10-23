@@ -63,15 +63,7 @@ jobs:
           --version_file_type py \
           --debug
         python setup.py sdist
+        rm dist/*.orig
     - name: Test build package
       run: |
-        twine check dist/*.tar.gz
-    - name: Archive build package artifact
-      uses: actions/upload-artifact@v3
-      with:
-        # https://docs.github.com/en/actions/learn-github-actions/contexts#github-context
-        # ${{ github.repository }} and ${{ github.ref_name }} can't be used for artifact name due to unallowed '/'
-        name: dist_repo.${{ github.event.repository.name }}_sha.${{ github.sha }}_build.${{ github.run_number }}
-        # _py.${{ matrix.python-version }}
-        path: dist/*.tar.gz
-        retention-days: 14
+        twine check dist/*
