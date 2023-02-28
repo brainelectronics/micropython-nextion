@@ -137,8 +137,8 @@ class NexRtc(Common):
         Read RTC time
 
         :param      return_type:  The return type, choose "int", "str" or from
-                                  ["year", "mon", "day", "hour", "min", "sec",
-                                   "week"]
+                                ["year", "mon", "day", "hour", "min", "sec",
+                                "week"]
         :type       return_type:  str
         :param      length:       The length
         :type       length:       Optional[int]
