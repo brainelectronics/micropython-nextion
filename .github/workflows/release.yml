@@ -1,5 +1,7 @@
-# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+---
+
+# this file is *not* meant to cover or endorse the use of GitHub Actions, but
+# rather to help make automated releases for this project
 
 name: Upload Python Package
 
@@ -9,37 +11,57 @@ on:
       - develop
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-    - name: Set up Python
-      uses: actions/setup-python@v3
-      with:
-        python-version: '3.9'
-    - name: Install build dependencies
-      run: |
-        python -m pip install --upgrade pip
-        if [ -f requirements-deploy.txt ]; then pip install -r requirements-deploy.txt; fi
-    - name: Build package
-      run: |
-        changelog2version \
-          --changelog_file changelog.md \
-          --version_file nextion/version.py \
-          --version_file_type py \
-          --debug
-        python setup.py sdist
-    - name: Publish package
-      env:
-        TWINE_USERNAME: __token__
-        TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
-      run: |
-        twine check dist/*.tar.gz
-        twine upload \
-          --skip-existing \
-          --verbose \
-          dist/*.tar.gz
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.9'
+      - name: Install build dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements-deploy.txt ]; then pip install -r requirements-deploy.txt; fi
+      - name: Build package
+        run: |
+          changelog2version \
+            --changelog_file changelog.md \
+            --version_file nextion/version.py \
+            --version_file_type py \
+            --debug
+          python setup.py sdist
+      - name: Publish package
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+        run: |
+          twine check dist/*.tar.gz
+          twine upload \
+            --skip-existing \
+            --verbose \
+            dist/*.tar.gz
+      - name: Publish package
+        uses: pypa/gh-action-pypi-publish@release/v1.5
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}
+          skip_existing: true
+          verbose: true
+          print_hash: true
+      - name: 'Create changelog based release'
+        uses: brainelectronics/changelog-based-release@v1
+        with:
+          # note you'll typically need to create a personal access token
+          # with permissions to create releases in the other repo
+          # or you set the "contents" permissions to "write" as in this example
+          changelog-path: changelog.md
+          tag-name-prefix: ''
+          tag-name-extension: ''
+          release-name-prefix: ''
+          release-name-extension: ''
+          draft-release: true
+          prerelease: false
