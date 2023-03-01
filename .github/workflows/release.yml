@@ -35,16 +35,8 @@ jobs:
             --version_file_type py \
             --debug
           python setup.py sdist
-      - name: Publish package
-        env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
-        run: |
-          twine check dist/*.tar.gz
-          twine upload \
-            --skip-existing \
-            --verbose \
-            dist/*.tar.gz
+          rm dist/*.orig
+        # sdist call create non conform twine files *.orig, remove them
       - name: Publish package
         uses: pypa/gh-action-pypi-publish@release/v1.5
         with:
