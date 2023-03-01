@@ -1,0 +1,4 @@
+# List external packages here
+# Avoid fixed versions
+flake8>=6.0.0,<7
+yamllint>=1.29,<2

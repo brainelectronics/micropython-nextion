@@ -17,6 +17,25 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 -->
 
 ## Released
+## [0.14.0] - 2023-03-01
+### Added
+- `.editorconfig` for common editor settings
+- `.yamllint` to lint all used YAML files
+- `requirements-test.txt` file
+- Run YAML linter on test workflow
+- `.readthedocs.yaml` definition file for ReadTheDocs
+- `docs` folder containing example files and configurations, see #24
+- `test-release` and `release` workflows create changelog based (pre-)releases
+- Documentation for changing a value on a non active page, see #20
+
+### Changed
+- Removed unused files from `.gitignore` file
+- Fail workflow on flake8 violations, see #23
+
+### Fixed
+- All workflows use checkout v3 instead of v2
+- Fixed uncovered YAML syntax issues in all workflow files
+
 ## [0.13.0] - 2022-10-23
 ### Added
 - `changelog2version` to [requirements file](requirements-deploy.txt)
@@ -190,8 +209,9 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 - [Example HMI file](examples/everything.HMI) to be used for all examples
 
 <!-- Links -->
-[Unreleased]: https://github.com/brainelectronics/micropython-nextion/compare/0.13.0...develop
+[Unreleased]: https://github.com/brainelectronics/micropython-nextion/compare/0.14.0...develop
 
+[0.14.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.14.0
 [0.13.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.13.0
 [0.12.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.12.0
 [0.11.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.11.0

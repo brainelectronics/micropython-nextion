@@ -2,19 +2,13 @@
 .DS_Store
 .DS_Store?
 pymakr.conf
-tests/
 config/config*.py
 thinking/
 *.bin
 .idea
 *.bak
-
 *.o
-
 .vagrant/
-
-# meson files under development
-untitled.meson.build
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
