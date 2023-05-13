@@ -1,0 +1,29 @@
+{
+  "urls": [
+    ["nextion/__init__.py", "github:brainelectronics/micropython-nextion/nextion/__init__.py"],
+    ["nextion/common.py", "github:brainelectronics/micropython-nextion/nextion/common.py"],
+    ["nextion/const.py", "github:brainelectronics/micropython-nextion/nextion/const.py"],
+    ["nextion/nextion_button.py", "github:brainelectronics/micropython-nextion/nextion/nextion_button.py"],
+    ["nextion/nextion_checkbox.py", "github:brainelectronics/micropython-nextion/nextion/nextion_checkbox.py"],
+    ["nextion/nextion_dual_state_button.py", "github:brainelectronics/micropython-nextion/nextion/nextion_dual_state_button.py"],
+    ["nextion/nextion_gauge.py", "github:brainelectronics/micropython-nextion/nextion/nextion_gauge.py"],
+    ["nextion/nextion_gpio.py", "github:brainelectronics/micropython-nextion/nextion/nextion_gpio.py"],
+    ["nextion/nextion_hardware.py", "github:brainelectronics/micropython-nextion/nextion/nextion_hardware.py"],
+    ["nextion/nextion_number.py", "github:brainelectronics/micropython-nextion/nextion/nextion_number.py"],
+    ["nextion/nextion_page.py", "github:brainelectronics/micropython-nextion/nextion/nextion_page.py"],
+    ["nextion/nextion_progressbar.py", "github:brainelectronics/micropython-nextion/nextion/nextion_progressbar.py"],
+    ["nextion/nextion_radio.py", "github:brainelectronics/micropython-nextion/nextion/nextion_radio.py"],
+    ["nextion/nextion_rtc.py", "github:brainelectronics/micropython-nextion/nextion/nextion_rtc.py"],
+    ["nextion/nextion_slider.py", "github:brainelectronics/micropython-nextion/nextion/nextion_slider.py"],
+    ["nextion/nextion_text.py", "github:brainelectronics/micropython-nextion/nextion/nextion_text.py"],
+    ["nextion/nextion_upload.py", "github:brainelectronics/micropython-nextion/nextion/nextion_upload.py"],
+    ["nextion/nextion_variable.py", "github:brainelectronics/micropython-nextion/nextion/nextion_variable.py"],
+    ["nextion/nextion_waveform.py", "github:brainelectronics/micropython-nextion/nextion/nextion_waveform.py"],
+    ["nextion/typing.py", "github:brainelectronics/micropython-nextion/nextion/typing.py"],
+    ["nextion/version.py", "github:brainelectronics/micropython-nextion/nextion/version.py"],
+  ],
+  "deps": [
+    ["logging", "latest"]
+  ],
+  "version": "0.4.0"
+}
