@@ -45,6 +45,7 @@ Connect the MicroPython device to a network (if possible)
 ```python
 import network
 station = network.WLAN(network.STA_IF)
+station.active(True)
 station.connect('SSID', 'PASSWORD')
 station.isconnected()
 ```
@@ -54,6 +55,29 @@ and install this lib on the MicroPython device like this
 ```python
 import upip
 upip.install('micropython-nextion')
+```
+
+### Install package with mip
+
+Starting with v1.20.0 Micropython switched from `upip` to `mip` for package management. Details can be found in [their release notes](https://github.com/micropython/micropython/releases). 
+
+A `package.json` file is provided to facilitate installation using mip.
+
+Connect the MicroPython device to a network (if possible)
+
+```python
+import network
+station = network.WLAN(network.STA_IF)
+station.active(True)
+station.connect('SSID', 'PASSWORD')
+station.isconnected()
+```
+
+and install this lib on the MicroPython device using the new `mip` package manager
+
+```python
+import mip
+mip.install("github:brainelectronics/micropython-nextion", version="develop")
 ```
 
 ### Manually
