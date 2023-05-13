@@ -31,6 +31,7 @@ class NexHardware(object):
     def __init__(self,
                  rx_pin: int,
                  tx_pin: int,
+                 uart_id: int = 1,
                  baudrate: Optional[int] = 9600,
                  timeout: Optional[int] = 100,
                  invert: Optional[int] = 0,
@@ -65,7 +66,7 @@ class NexHardware(object):
         self._invert = invert
 
         self._uart = UART(
-            1,
+            uart_id,
             tx=self._tx_pin,
             rx=self._rx_pin,
             baudrate=self._baudrate,

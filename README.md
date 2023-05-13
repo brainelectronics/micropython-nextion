@@ -45,16 +45,69 @@ Connect the MicroPython device to a network (if possible)
 ```python
 import network
 station = network.WLAN(network.STA_IF)
+station.active(True)
 station.connect('SSID', 'PASSWORD')
 station.isconnected()
 ```
 
-and install this lib on the MicroPython device like this
+#### General
+
+Install the latest package version of this lib on the MicroPython device
+
+```python
+import mip
+mip.install("github:brainelectronics/micropython-nextion")
+```
+
+For MicroPython versions below 1.19.1 use the `upip` package instead of `mip`
 
 ```python
 import upip
 upip.install('micropython-nextion')
 ```
+
+#### Specific version
+
+Install a specific, fixed package version of this lib on the MicroPython device
+
+```python
+import mip
+# install a verions of a specific branch
+mip.install("github:brainelectronics/micropython-nextion", version="feature/add-mip-package-file")
+# install a tag version
+mip.install("github:brainelectronics/micropython-nextion", version="0.15.0")
+```
+
+For MicroPython versions below 1.19.1 use the `upip` package instead of `mip`
+
+```python
+import upip
+upip.install('micropython-nextion')
+```
+
+#### Test version
+
+Install a specific release candidate version uploaded to
+[Test Python Package Index](https://test.pypi.org/) on every PR on the
+MicroPython device. If no specific version is set, the latest stable version
+will be used.
+
+```python
+import mip
+mip.install("github:brainelectronics/micropython-nextion", version="0.15.0-rc1.dev29")
+```
+
+For MicroPython versions below 1.19.1 use the `upip` package instead of `mip`
+
+```python
+import upip
+# overwrite index_urls to only take artifacts from test.pypi.org
+upip.index_urls = ['https://test.pypi.org/pypi']
+upip.install('micropython-nextion')
+```
+
+See also [brainelectronics Test PyPi Server in Docker][ref-brainelectronics-test-pypiserver]
+for a test PyPi server running on Docker.
 
 ### Manually
 
@@ -121,5 +174,6 @@ of the Arduino library.
 [ref-nextion-wiki]: https://wiki.iteadstudio.com/Nextion_HMI_Solution
 [ref-itead-nextion-github]: https://github.com/itead/ITEADLIB_Arduino_Nextion
 [ref-remote-upy-shell]: https://github.com/dhylands/rshell
+[ref-brainelectronics-test-pypiserver]: https://github.com/brainelectronics/test-pypiserver
 [ref-github-be-mircopython-modules]: https://github.com/brainelectronics/micropython-modules
 [ref-itead-github]: https://github.com/itead

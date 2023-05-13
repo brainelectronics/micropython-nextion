@@ -26,6 +26,7 @@ setup(
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
+        'Programming Language :: Python :: Implementation :: MicroPython',
     ],
     keywords='micropython, nextion, display, nextion-display, nextion-communication, uart, library',
     project_urls={

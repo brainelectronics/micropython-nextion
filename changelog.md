@@ -17,6 +17,12 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 -->
 
 ## Released
+## [0.15.0] - 2023-05-13
+### Added
+- `package.json` for `mip` installation with MicroPython v1.19.1 or newer, see #27
+- Instructions for installation with `mip` on  MicroPython v1.19.1 or newer in `README`, see #27
+- UART ID can be specified in `NexHardware` with `uart_id`, see #29
+
 ## [0.14.0] - 2023-03-01
 ### Added
 - `.editorconfig` for common editor settings
@@ -209,8 +215,9 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 - [Example HMI file](examples/everything.HMI) to be used for all examples
 
 <!-- Links -->
-[Unreleased]: https://github.com/brainelectronics/micropython-nextion/compare/0.14.0...develop
+[Unreleased]: https://github.com/brainelectronics/micropython-nextion/compare/0.15.0...develop
 
+[0.15.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.15.0
 [0.14.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.14.0
 [0.13.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.13.0
 [0.12.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.12.0
