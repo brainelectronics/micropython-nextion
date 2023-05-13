@@ -2,3 +2,4 @@
 # Avoid fixed versions
 flake8>=6.0.0,<7
 yamllint>=1.29,<2
+setup2upypackage>=0.1.0,<1
