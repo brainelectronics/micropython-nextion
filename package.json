@@ -21,10 +21,6 @@
             "github:brainelectronics/micropython-nextion/nextion/nextion_checkbox.py"
         ],
         [
-            "nextion/nextion_crop.py",
-            "github:brainelectronics/micropython-nextion/nextion/nextion_crop.py"
-        ],
-        [
             "nextion/nextion_dual_state_button.py",
             "github:brainelectronics/micropython-nextion/nextion/nextion_dual_state_button.py"
         ],
@@ -49,10 +45,6 @@
             "github:brainelectronics/micropython-nextion/nextion/nextion_page.py"
         ],
         [
-            "nextion/nextion_picture.py",
-            "github:brainelectronics/micropython-nextion/nextion/nextion_picture.py"
-        ],
-        [
             "nextion/nextion_progressbar.py",
             "github:brainelectronics/micropython-nextion/nextion/nextion_progressbar.py"
         ],
@@ -65,20 +57,12 @@
             "github:brainelectronics/micropython-nextion/nextion/nextion_rtc.py"
         ],
         [
-            "nextion/nextion_scrolltext.py",
-            "github:brainelectronics/micropython-nextion/nextion/nextion_scrolltext.py"
-        ],
-        [
             "nextion/nextion_slider.py",
             "github:brainelectronics/micropython-nextion/nextion/nextion_slider.py"
         ],
         [
             "nextion/nextion_text.py",
             "github:brainelectronics/micropython-nextion/nextion/nextion_text.py"
-        ],
-        [
-            "nextion/nextion_timer.py",
-            "github:brainelectronics/micropython-nextion/nextion/nextion_timer.py"
         ],
         [
             "nextion/nextion_upload.py",
