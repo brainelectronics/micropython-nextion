@@ -49,7 +49,7 @@ class NexWaveform(Common, CommonBackgroundColorMixin, CommonFontMixin):
         :rtype:     bool
         """
         if ch > 3:
-            self._logger.debug("Only channels (0-3) supported by waveform")
+            self._nh._logger.debug("Only channels (0-3) supported by waveform")
             return False
 
         cmd = "add {},{},{}".format(self.cid, ch, number)
@@ -67,8 +67,8 @@ class NexWaveform(Common, CommonBackgroundColorMixin, CommonFontMixin):
         :rtype:     bool
         """
         if (ch > 3) and (ch != 255):
-            self._logger.debug("Only the channels (0-3) or all channels at "
-                               "once (255) can be cleared")
+            self._nh._logger.debug("Only the channels (0-3) or all channels "
+                                   "at once (255) can be cleared")
             return False
 
         cmd = "cle {},{}".format(self.cid, ch)

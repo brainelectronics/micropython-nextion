@@ -83,8 +83,9 @@ class NexRtc(Common):
                                   format("2016,11,25,12,34,50",
                                          [2016, 11, 25, 12, 34, 50]))
 
-            self._logger.debug("Timestamp (ISO8601): {}-{}-{}T{}:{}:{}".
-                               format(year, month, day, hour, minute, second))
+            self._nh._logger.debug(
+                "Timestamp (ISO8601): {}-{}-{}T{}:{}:{}".format(
+                    year, month, day, hour, minute, second))
 
             cmd = "rtc0={}".format(year)
             self._nh.sendCommand(cmd)
@@ -121,7 +122,7 @@ class NexRtc(Common):
                 else:
                     raise NexRtcError("Either use keyword or positional args")
 
-            self._logger.debug("Set '{}' to '{}'".format(time_type, time))
+            self._nh._logger.debug("Set '{}' to '{}'".format(time_type, time))
             rtc_index = self.time_types.index(time_type.lower())
 
             cmd = "rtc{}={}".format(rtc_index, time)
