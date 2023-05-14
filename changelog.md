@@ -17,6 +17,10 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 -->
 
 ## Released
+## [0.15.2] - 2023-05-14
+### Fixed
+- Logger import fixed, see #31
+
 ## [0.15.1] - 2023-05-14
 ### Fixed
 - Remove yet unavailable files from `package.json`, see #33
@@ -220,8 +224,9 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 - [Example HMI file](examples/everything.HMI) to be used for all examples
 
 <!-- Links -->
-[Unreleased]: https://github.com/brainelectronics/micropython-nextion/compare/0.15.1...develop
+[Unreleased]: https://github.com/brainelectronics/micropython-nextion/compare/0.15.2...develop
 
+[0.15.2]: https://github.com/brainelectronics/micropython-nextion/tree/0.15.2
 [0.15.1]: https://github.com/brainelectronics/micropython-nextion/tree/0.15.1
 [0.15.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.15.0
 [0.14.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.14.0
