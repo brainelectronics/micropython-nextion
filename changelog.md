@@ -20,6 +20,7 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 ## [0.15.2] - 2023-05-14
 ### Fixed
 - Logger import fixed, see #31
+- Examples README improved with MicroPython port specific UART pin usage example, see #30
 
 ## [0.15.1] - 2023-05-14
 ### Fixed
