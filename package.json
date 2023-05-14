@@ -81,12 +81,14 @@
             "github:brainelectronics/micropython-nextion/nextion/typing.py"
         ],
         [
+            "nextion/ulogging.py",
+            "github:brainelectronics/micropython-nextion/nextion/ulogging.py"
+        ],
+        [
             "nextion/version.py",
             "github:brainelectronics/micropython-nextion/nextion/version.py"
         ]
     ],
-    "deps": [
-        "micropython-ulogging"
-    ],
-    "version": "0.15.0"
+    "deps": [],
+    "version": "0.15.1"
 }

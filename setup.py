@@ -36,5 +36,5 @@ setup(
     license='MIT',
     cmdclass={'sdist': sdist_upip.sdist},
     packages=['nextion'],
-    install_requires=['micropython-ulogging']
+    install_requires=[]
 )

@@ -17,9 +17,10 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 -->
 
 ## Released
-## [0.15.1] - 2023-05-13
+## [0.15.1] - 2023-05-14
 ### Fixed
 - Remove yet unavailable files from `package.json`, see #33
+- Add `ulogging` module to package to remove all external dependencies
 
 ## [0.15.0] - 2023-05-13
 ### Added
