@@ -14,11 +14,11 @@ Known issues
 # system packages
 from machine import UART
 from time import ticks_diff, ticks_ms
-import ulogging as logging
 
 # custom packages
 from .typing import Optional
 from . import const as Const
+from . import ulogging as logging
 
 
 class NexHardwareError(Exception):
