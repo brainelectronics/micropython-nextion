@@ -136,30 +136,6 @@ cp examples/basic/main.py /pyboard
 cp examples/boot.py /pyboard
 ```
 
-### Install additional MicroPython packages
-
-To use this package with the provided [`boot.py`](examples/boot.py) and one of
-the `main.py` files of an [example subfolder](examples/), the additional
-module `ulogging` is required.
-
-Either install the required package(s) using `upip` as follows after
-connecting to a WiFi network:
-
-```python
-# network connection already established
-
-import upip
-upip.install('micropython-ulogging')
-```
-
-or copy it manually to the MicroPython board using e.g. `rshell`:
-
-```bash
-mkdir /pyboard/lib
-
-cp -r libs_external/* /pyboard/lib
-```
-
 ## Usage
 
 Use one of the [examples](examples/) to get started. Read also the
