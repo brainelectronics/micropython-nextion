@@ -9,6 +9,26 @@ Usage examples of this `micropython-nextion` library
 An example of all implemented functionalities can be found at the
 [MicroPython Nextion examples folder][ref-micropython-nextion-examples]
 
+## Setup Nextion
+
+```python
+from nextion import NexHardware
+
+# define communication pins for Nextion display
+tx_pin = 21
+rx_pin = 22
+
+# create Nextion hardware interface
+nh = NexHardware(rx_pin=rx_pin, tx_pin=tx_pin)
+
+# init nextion communication interface
+nh.nexInit()
+
+# modify text field "t0" showing "newtxt" by default
+cmd = 't0.txt="asdf"'
+nh.sendCommand(cmd)
+```
+
 ## Special hints
 
 ### Access object on a non active page

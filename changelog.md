@@ -17,6 +17,21 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 -->
 
 ## Released
+## [0.16.0] - 2023-06-12
+### Added
+- Validate `package.json` file with every test workflow run but without version validation
+- Basic setup instructions added to docs examples file
+
+### Changed
+- Update `nextion/ulogging.py` to [version 0.5 of micropython-lib](https://github.com/micropython/micropython-lib/blob/7128d423c2e7c0309ac17a1e6ba873b909b24fcc/python-stdlib/logging/logging.py)
+
+### Removed
+- Outdated and unused `libs_external` folder with `ulogging.py`
+- `libs_external` and `nextion/ulogging.py` removed from `.flake8` exclude list
+
+### Fixed
+- Installation instructions in Quickstart document are using `mip`
+
 ## [0.15.3] - 2023-05-17
 ### Fixed
 - Publish releases to PyPi again as `micropython-nextion`, see #35
@@ -229,8 +244,9 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 - [Example HMI file](examples/everything.HMI) to be used for all examples
 
 <!-- Links -->
-[Unreleased]: https://github.com/brainelectronics/micropython-nextion/compare/0.15.3...develop
+[Unreleased]: https://github.com/brainelectronics/micropython-nextion/compare/0.16.0...develop
 
+[0.16.0]: https://github.com/brainelectronics/micropython-nextion/tree/0.16.0
 [0.15.3]: https://github.com/brainelectronics/micropython-nextion/tree/0.15.3
 [0.15.2]: https://github.com/brainelectronics/micropython-nextion/tree/0.15.2
 [0.15.1]: https://github.com/brainelectronics/micropython-nextion/tree/0.15.1
