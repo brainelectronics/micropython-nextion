@@ -38,7 +38,7 @@ pip install -r requirements.txt
 
 ## Setup
 
-### Install package with upip
+### Install package
 
 Connect the MicroPython device to a network (if possible)
 
