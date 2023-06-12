@@ -22,38 +22,46 @@ esptool.py --chip esp32 --port /dev/tty.SLAB_USBtoUART erase_flash
 esptool.py --chip esp32 --port /dev/tty.SLAB_USBtoUART --baud 921600 write_flash -z 0x1000 esp32spiram-20220117-v1.18.bin
 ```
 
-### Install package on board with pip
+### Install package
 
-```bash
-rshell -p /dev/tty.SLAB_USBtoUART --editor nano
+Connect the MicroPython device to a network (if possible)
+
+```python
+import network
+station = network.WLAN(network.STA_IF)
+station.active(True)
+station.connect('SSID', 'PASSWORD')
+station.isconnected()
 ```
 
-Inside the rshell
+Install the latest package version of this lib on the MicroPython device
+
+```python
+import mip
+mip.install("github:brainelectronics/micropython-nextion")
+```
+
+For MicroPython versions below 1.19.1 use the `upip` package instead of `mip`
+
+```python
+import upip
+upip.install('micropython-nextion')
+```
+
+### Copy example file
+
+Copy one of the provided example `main.py` files to the MicroPython device.
+
+```bash
+rshell --port /dev/tty.SLAB_USBtoUART --editor nano
+```
+
+Perform the following command inside the `rshell` to copy the Progressbar example to the MicroPython device.
 
 ```bash
 cp examples/progressbar/main.py /pyboard
 cp examples/boot.py /pyboard
 repl
-```
-
-Inside the REPL
-
-```python
-import machine
-import network
-import time
-import upip
-
-station = network.WLAN(network.STA_IF)
-station.active(True)
-station.connect('SSID', 'PASSWORD')
-time.sleep(1)
-print('Device connected to network: {}'.format(station.isconnected()))
-
-upip.install('micropython-nextion')
-
-print('Installation completed')
-machine.soft_reset()
 ```
 
 <!-- Links -->

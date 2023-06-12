@@ -10,7 +10,6 @@ Connect to network, create an AccessPoint if connection failed otherwise
 """
 
 # system packages
-import esp
 import gc
 import machine
 import network
@@ -19,15 +18,6 @@ import time
 # set clock speed to 240MHz instead of default 160MHz
 # import machine
 # machine.freq(240000000)
-
-# disable ESP os debug output
-esp.osdebug(None)
-
-# set pin D4 as output (blue LED)
-led_pin = machine.Pin(4, machine.Pin.OUT)
-
-# turn onboard LED on
-led_pin.value(1)
 
 station = network.WLAN(network.STA_IF)
 if station.active() and station.isconnected():
@@ -74,9 +64,6 @@ if result is False:
                        channel=11)
 
     print('Created Accesspoint: {}'.format(accesspoint_name))
-
-# turn onboard LED off
-led_pin.value(0)
 
 print('Restart cause: {}'.format(machine.reset_cause()))
 
